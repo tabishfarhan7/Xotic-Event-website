@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+:root {
+    --gold: #c9a96e;
+    --light-gold: #e1c699;
+    --dark-bg: #101010;
+    --text-light: #e5e7eb;
+    --text-dark: #1f1f1f;
+    --card-bg: #1a1a1a;
+    --border-color: rgba(201, 169, 110, 0.3);
+
+    --font-heading: 'Source Serif 4', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --border-radius: 8px;
+}
+
+body.light-theme {
+    --dark-bg: #fdfcf9;
+    --text-light: #2c2c2c;
+    --card-bg: #ffffff;
+    --border-color: rgba(201, 169, 110, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-weight: 700;
+}
+
+a {
+    color: var(--light-gold);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--gold);
+}
