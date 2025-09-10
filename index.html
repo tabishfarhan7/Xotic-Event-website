@@ -4,13 +4,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xotic Event - Making Moments Memorable</title>
+    <title>Xotic Event - Masterfully Crafted Moments</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body class="bg-brand-dark text-gray-300">
 
-    <script src="script.js"></script>
+    <div class="loader">
+        <div class="loader-text">XOTIC</div>
+    </div>
+
+    <div class="background-effects">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div class="aurora-cursor"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 opacity-0" id="header">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold tracking-widest text-brand-gold"
+                    style="font-family: var(--font-heading);">XOTIC</a>
+                <ul class="hidden md:flex items-center space-x-10">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-lg text-brand-gold/70 hover:text-brand-gold hover:bg-white/10 transition-colors">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <section class="h-screen flex items-center justify-center text-center overflow-hidden" id="home">
+            <div class="relative z-10 px-4">
+                <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl font-bold text-brand-gold-light">
+                    <span class="char">X</span><span class="char">O</span><span class="char">T</span><span
+                        class="char">I</span><span class="char">C</span>
+                </h1>
+                <p class="hero-subtitle text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mt-4">
+                    Unforgettable Moments, Masterfully Crafted.
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <section class="py-24 sm:py-32" id="services">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl text-center mx-auto">
+                    <h2 class="section-heading">Our Expertise</h2>
+                    <p class="section-subheading">From grand galas to intimate gatherings, we design, manage, and
+                        execute with unparalleled precision.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+                    <div class="service-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Corporate Events</h3>
+                            <p class="card-body">Elevating your brand with seamless conferences, product launches, and
+                                prestigious award ceremonies.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Luxury Weddings</h3>
+                            <p class="card-body">Curating timeless, breathtaking celebrations that reflect your unique
+                                love story.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Private Parties</h3>
+                            <p class="card-body">Designing exclusive and memorable milestone birthdays, anniversaries,
+                                and private soirées.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 sm:py-32">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl text-left mb-20">
+                    <h2 class="section-heading">The Art of Perfection</h2>
+                    <p class="section-subheading">We are architects of atmosphere, weaving together creative vision and
+                        meticulous detail.</p>
+                </div>
+            </div>
+            <div class="sticky-parent">
+                <div class="sticky-media">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop"
+                        alt="Meticulous Planning" class="media-image">
+                </div>
+                <div class="sticky-content">
+                    <h3 class="text-3xl font-bold text-brand-gold mb-4">Meticulous Planning</h3>
+                    <p>Every detail is an obsession. We orchestrate thousands of moving parts into a single, flawless
+                        symphony, ensuring a seamless experience from the first sketch to the final farewell.</p>
+                </div>
+            </div>
+            <div class="sticky-parent">
+                <div class="sticky-media">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b6?q=80&w=2670&auto=format&fit=crop"
+                        alt="Creative Vision" class="media-image">
+                </div>
+                <div class="sticky-content">
+                    <h3 class="text-3xl font-bold text-brand-gold mb-4">Creative Vision</h3>
+                    <p>We don't just plan events; we design emotions. Our team transforms spaces and moments into
+                        immersive stories that captivate guests and leave a lasting impression.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 sm:py-40 text-center" id="contact">
+            <div class="container mx-auto px-6">
+                <h2 class="section-heading text-4xl md:text-6xl">Begin Your Story</h2>
+                <p class="section-subheading max-w-2xl mx-auto mt-6">Your vision deserves extraordinary execution. Let's
+                    discuss how we can create a truly memorable event together.</p>
+                <a href="mailto:contact@xoticevent.com" class="btn-primary mt-12">
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; 2025 Xotic Event. All Rights Reserved. Masterfully Crafted Experiences.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
 </html>
