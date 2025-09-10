@@ -7,64 +7,405 @@
     <title>Xotic Event - Masterfully Crafted Moments</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --brand-dark: #050505;
+            --brand-gold: #D4AF37;
+            --brand-gold-light: #F8E4B1;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Poppins', 'Helvetica Neue', sans-serif;
+        }
 
-    <script src="script.js" defer></script>
+        body {
+            background-color: var(--brand-dark);
+            font-family: var(--font-body);
+            color: #a0a0a0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--brand-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-gold);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-gold-light);
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--brand-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader-text {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--brand-gold-light);
+            font-weight: 700;
+            letter-spacing: 0.5rem;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #a0a0a0;
+            transition: color 0.3s;
+            padding-bottom: 8px;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--brand-gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero-title .char {
+            display: inline-block;
+            will-change: transform;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            color: var(--brand-gold-light);
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to top, var(--brand-gold), transparent);
+            margin: 1rem auto 0;
+            animation: scroll-down 2s infinite;
+        }
+
+        @keyframes scroll-down {
+            0% {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+
+            50% {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+
+            51% {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+
+            100% {
+                transform: scaleY(0);
+                transform-origin: bottom;
+            }
+        }
+
+        .marquee {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .marquee-content {
+            animation: marquee-scroll 40s linear infinite;
+        }
+
+        .section-heading {
+            font-family: var(--font-heading);
+            color: var(--brand-gold-light);
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .process-number {
+            font-family: var(--font-heading);
+            color: rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 175, 55, 0.1), transparent 40%);
+            transition: opacity 0.4s;
+            opacity: 0;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            color: var(--brand-gold);
+        }
+
+        .btn-learn-more {
+            border: 1px solid var(--brand-gold);
+            color: var(--brand-gold);
+            padding: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s, color 0.3s;
+            font-weight: 500;
+        }
+
+        .service-card:hover .btn-learn-more {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-learn-more:hover {
+            background-color: var(--brand-gold);
+            color: var(--brand-dark);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-pagination-bullet {
+            background-color: rgba(255, 255, 255, 0.3);
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--brand-gold) !important;
+            transform: scale(1.2);
+        }
+
+        .gallery-item {
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) !important;
+            z-index: 10;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            position: relative;
+            padding: 1rem 3rem;
+            border: 1px solid var(--brand-gold);
+            color: var(--brand-gold);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            overflow: hidden;
+            transition: color 0.4s ease;
+            text-decoration: none;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            color: var(--brand-dark);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--brand-gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .detail-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--brand-dark);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            overflow-y: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--brand-gold-light);
+            font-size: 2.5rem;
+            font-weight: 200;
+            cursor: pointer;
+            z-index: 210;
+        }
+    </style>
 </head>
 
-<body class="bg-brand-dark text-gray-300">
-
-    <div class="cursor"></div>
+<body class="bg-brand-dark">
 
     <div class="loader">
         <div class="loader-text">XOTIC</div>
     </div>
 
-    <div class="background-effects">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-        <div class="aurora-cursor"></div>
-    </div>
+    <canvas id="bg-canvas"></canvas>
 
     <header class="fixed top-0 left-0 w-full z-50 opacity-0" id="header">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold tracking-widest text-brand-gold magnetic"
+                <a href="#" class="text-3xl font-bold tracking-widest text-brand-gold-light"
                     style="font-family: var(--font-heading);">XOTIC</a>
-                <ul class="hidden md:flex items-center space-x-10">
-                    <li><a href="#home" class="nav-link magnetic">Home</a></li>
-                    <li><a href="#services" class="nav-link magnetic">Services</a></li>
-                    <li><a href="#about" class="nav-link magnetic">About</a></li>
-                    <li><a href="#testimonials" class="nav-link magnetic">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-link magnetic">Contact</a></li>
+
+                <ul class="hidden md:flex items-center space-x-12">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="flex items-center space-x-4">
-                    <button id="theme-toggle"
-                        class="p-2 rounded-lg text-brand-gold/70 hover:text-brand-gold hover:bg-white/10 transition-colors magnetic">
-                    </button>
-                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden z-[101] text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
         </nav>
     </header>
 
-    <main id="main-content">
+    <div id="mobile-menu"
+        class="mobile-menu fixed top-0 right-0 h-full w-full bg-black/90 backdrop-blur-lg z-[100] flex items-center justify-center transform translate-x-full">
+        <ul class="text-center">
+            <li class="my-6"><a href="#home" class="text-3xl text-white mobile-nav-link">Home</a></li>
+            <li class="my-6"><a href="#about" class="text-3xl text-white mobile-nav-link">About</a></li>
+            <li class="my-6"><a href="#services" class="text-3xl text-white mobile-nav-link">Services</a></li>
+            <li class="my-6"><a href="#gallery" class="text-3xl text-white mobile-nav-link">Gallery</a></li>
+            <li class="my-6"><a href="#contact" class="text-3xl text-white mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
 
+
+    <main id="main-content">
         <section class="h-screen flex items-center justify-center text-center overflow-hidden" id="home">
             <div class="relative z-10 px-4">
-                <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl font-bold text-brand-gold-light">
+                <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl font-bold text-brand-gold-light"
+                    style="font-family: var(--font-heading);">
                     <span class="char">X</span><span class="char">O</span><span class="char">T</span><span
                         class="char">I</span><span class="char">C</span>
                 </h1>
-                <p class="hero-subtitle text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mt-4">
+                <p class="hero-subtitle text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mt-4 opacity-0">
                     Unforgettable Moments, Masterfully Crafted.
                 </p>
             </div>
@@ -74,86 +415,143 @@
             </div>
         </section>
 
-        <div class="marquee">
-            <div class="marquee-content">
-                <span>Luxury Weddings</span><span class="text-brand-gold">•</span>
-                <span>Corporate Galas</span><span class="text-brand-gold">•</span>
-                <span>Bespoke Events</span><span class="text-brand-gold">•</span>
-                <span>Meticulous Planning</span><span class="text-brand-gold">•</span>
-                <span>Creative Design</span><span class="text-brand-gold">•</span>
+        <div class="marquee relative flex overflow-x-hidden text-gray-500 py-4">
+            <div class="marquee-content flex-shrink-0 flex items-center justify-around min-w-full" aria-hidden="true">
+                <span class="text-lg md:text-xl mx-8 font-semibold">Luxury Weddings</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Corporate Galas</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Bespoke Events</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Meticulous Planning</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Creative Design</span>
             </div>
-            <div class="marquee-content" aria-hidden="true">
-                <span>Luxury Weddings</span><span class="text-brand-gold">•</span>
-                <span>Corporate Galas</span><span class="text-brand-gold">•</span>
-                <span>Bespoke Events</span><span class="text-brand-gold">•</span>
-                <span>Meticulous Planning</span><span class="text-brand-gold">•</span>
-                <span>Creative Design</span><span class="text-brand-gold">•</span>
+            <div class="marquee-content flex-shrink-0 flex items-center justify-around min-w-full" aria-hidden="true">
+                <span class="text-lg md:text-xl mx-8 font-semibold">Luxury Weddings</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Corporate Galas</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Bespoke Events</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Meticulous Planning</span><span
+                    class="text-brand-gold">•</span>
+                <span class="text-lg md:text-xl mx-8 font-semibold">Creative Design</span>
             </div>
         </div>
 
-        <section class="py-24 sm:py-32" id="services">
+        <section class="py-24 sm:py-32" id="about">
             <div class="container mx-auto px-6">
-                <div class="max-w-3xl text-center mx-auto">
-                    <h2 class="section-heading">Our Expertise</h2>
-                    <p class="section-subheading">From grand galas to intimate gatherings, we design, manage, and
-                        execute with unparalleled precision.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-                    <div class="service-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Corporate Events</h3>
-                            <p class="card-body">Elevating your brand with seamless conferences, product launches, and
-                                prestigious award ceremonies.</p>
-                        </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="about-content">
+                        <h2 class="section-heading text-4xl md:text-5xl">The Art of Perfection</h2>
+                        <p class="mt-6 text-lg text-gray-400 max-w-xl">We are architects of atmosphere, weaving creative
+                            vision and meticulous detail into every moment. For over a decade, Xotic Event has been the
+                            trusted name behind the world's most talked-about events.</p>
+                        <p class="mt-4 text-gray-400 max-w-xl">Our philosophy is simple: your vision is our blueprint.
+                            We combine passion with precision to create experiences that are not only seen and heard but
+                            felt long after the last guest departs.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Luxury Weddings</h3>
-                            <p class="card-body">Curating timeless, breathtaking celebrations that reflect your unique
-                                love story.</p>
-                        </div>
-                    </div>
-                    <div class="service-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Private Parties</h3>
-                            <p class="card-body">Designing exclusive and memorable milestone birthdays, anniversaries,
-                                and private soirées.</p>
-                        </div>
+                    <div class="about-image relative h-96">
+                        <img src="https://res.cloudinary.com/dheocxwze/image/upload/v1757513893/rely-tailors/xaxv1gfhqkggflfnoxv1.jpg"
+                            alt="Elegant event setup"
+                            class="w-full h-full object-cover rounded-lg shadow-2xl shadow-black/50">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 sm:py-32" id="about">
+        <section class="py-24 sm:py-32 bg-black/20" id="process">
             <div class="container mx-auto px-6">
-                <div class="text-left mb-20">
-                    <h2 class="section-heading">The Art of Perfection</h2>
-                    <p class="section-subheading">We are architects of atmosphere, weaving creative vision and
-                        meticulous detail into every moment.</p>
+                <div class="max-w-3xl text-center mx-auto">
+                    <h2 class="section-heading text-4xl md:text-5xl">The Xotic Approach</h2>
+                    <p class="mt-4 text-lg text-gray-400">A seamless journey from dream to reality, executed with
+                        precision and passion.</p>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="about-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSB0j4lvMq-yNHPEl6A1ge51SLQg-RQIHL8w&s"
-                            alt="Creative event design"
-                            class="w-full h-full object-cover rounded-lg shadow-2xl shadow-black/50">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12 mt-20 text-center">
+                    <div class="process-step">
+                        <h3 class="text-8xl font-bold process-number">01</h3>
+                        <h4 class="text-2xl font-semibold text-white mt-2 mb-3"
+                            style="font-family: var(--font-heading);">Consultation</h4>
+                        <p class="text-gray-400">We begin by listening, understanding your vision, objectives, and the
+                            unique story you want to tell.</p>
                     </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-brand-gold mb-4" style="font-family: var(--font-heading);">A
-                            Decade of Distinction</h3>
-                        <p class="text-gray-400 mb-8">For over 10 years, Xotic Event has been the trusted name behind
-                            the most talked-about events. Our philosophy is simple: your vision is our blueprint. We
-                            combine passion with precision to create experiences that are not only seen and heard but
-                            felt long after the last guest departs.</p>
-                        <div class="grid grid-cols-2 gap-8 text-center">
-                            <div>
-                                <span class="counter-number" data-target="250">0</span>
-                                <p class="text-sm uppercase tracking-widest text-gray-500">Events Planned</p>
+                    <div class="process-step">
+                        <h3 class="text-8xl font-bold process-number">02</h3>
+                        <h4 class="text-2xl font-semibold text-white mt-2 mb-3"
+                            style="font-family: var(--font-heading);">Design</h4>
+                        <p class="text-gray-400">Our creative team crafts a bespoke concept, translating your ideas into
+                            a detailed, immersive event design.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3 class="text-8xl font-bold process-number">03</h3>
+                        <h4 class="text-2xl font-semibold text-white mt-2 mb-3"
+                            style="font-family: var(--font-heading);">Execution</h4>
+                        <p class="text-gray-400">With meticulous planning and flawless coordination, we bring every
+                            element to life, ensuring a seamless experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 sm:py-32" id="services">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl text-center mx-auto">
+                    <h2 class="section-heading text-4xl md:text-5xl">Our Expertise</h2>
+                    <p class="mt-4 text-lg text-gray-400">From grand galas to intimate gatherings, we design, manage,
+                        and execute with unparalleled precision.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+                    <div class="service-card rounded-lg p-8 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="card-icon mb-6">
+                                <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
                             </div>
-                            <div>
-                                <span class="counter-number" data-target="99">0</span>
-                                <p class="text-sm uppercase tracking-widest text-gray-500">Client Satisfaction</p>
-                            </div>
+                            <h3 class="text-2xl font-semibold text-white mb-3"
+                                style="font-family: var(--font-heading);">Corporate Events</h3>
+                            <p class="text-gray-400">Elevating your brand with seamless conferences, product launches,
+                                and prestigious award ceremonies.</p>
                         </div>
+                        <a href="#" class="btn-learn-more" data-service="corporate">Learn More</a>
+                    </div>
+                    <div class="service-card rounded-lg p-8 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="card-icon mb-6">
+                                <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white mb-3"
+                                style="font-family: var(--font-heading);">Luxury Weddings</h3>
+                            <p class="text-gray-400">Curating timeless, breathtaking celebrations that reflect your
+                                unique love story.</p>
+                        </div>
+                        <a href="#" class="btn-learn-more" data-service="weddings">Learn More</a>
+                    </div>
+                    <div class="service-card rounded-lg p-8 text-center flex flex-col justify-between">
+                        <div>
+                            <div class="card-icon mb-6">
+                                <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white mb-3"
+                                style="font-family: var(--font-heading);">Private Parties</h3>
+                            <p class="text-gray-400">Designing exclusive and memorable milestone birthdays,
+                                anniversaries, and private soirées.</p>
+                        </div>
+                        <a href="#" class="btn-learn-more" data-service="parties">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -161,47 +559,47 @@
 
         <section class="py-24 sm:py-32" id="testimonials">
             <div class="container mx-auto px-6">
-                <div class="max-w-3xl text-center mx-auto">
-                    <h2 class="section-heading">Words of Acclaim</h2>
-                    <p class="section-subheading">Our success is measured by the memories we create and the praise we
-                        receive.</p>
+                <div class="max-w-3xl text-center mx-auto mb-20">
+                    <h2 class="section-heading text-4xl md:text-5xl">Words of Acclaim</h2>
+                    <p class="mt-4 text-lg text-gray-400">Our success is measured by the memories we create.</p>
                 </div>
-                <div class="swiper testimonials-slider mt-20">
+                <div class="swiper testimonials-slider">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide h-auto">
-                            <div class="testimonial-card">
-                                <p class="card-body italic">"Unparalleled professionalism. Xotic transformed our annual
-                                    gala into a landmark event. Truly in a class of their own."</p>
-                                <div class="card-author"><img src="https://randomuser.me/api/portraits/women/44.jpg"
-                                        alt="Jane Doe">
-                                    <div>
-                                        <h4>Jane Doe</h4><span>CEO, Innovate Corp</span>
-                                    </div>
+                            <div class="testimonial-card rounded-lg p-8 text-center flex flex-col items-center h-full">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Doe"
+                                    class="w-20 h-20 rounded-full object-cover border-2 border-brand-gold/50 mb-4">
+                                <p class="text-gray-300 italic mb-6">"Unparalleled professionalism. Xotic transformed
+                                    our annual gala into a landmark event. Truly in a class of their own."</p>
+                                <div class="mt-auto">
+                                    <h4 class="font-semibold text-white text-lg">Jane Doe</h4>
+                                    <span class="text-gray-500">CEO, Innovate Corp</span>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide h-auto">
-                            <div class="testimonial-card">
-                                <p class="card-body italic">"Our wedding was a fairytale, all thanks to the Xotic team.
-                                    They took our vision and made it more beautiful than we could have ever imagined."
-                                </p>
-                                <div class="card-author"><img src="https://randomuser.me/api/portraits/men/32.jpg"
-                                        alt="John Smith">
-                                    <div>
-                                        <h4>John & Emily Smith</h4><span>Newlyweds</span>
-                                    </div>
+                            <div class="testimonial-card rounded-lg p-8 text-center flex flex-col items-center h-full">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John & Emily Smith"
+                                    class="w-20 h-20 rounded-full object-cover border-2 border-brand-gold/50 mb-4">
+                                <p class="text-gray-300 italic mb-6">"Our wedding was a fairytale, all thanks to the
+                                    Xotic team. They took our vision and made it more beautiful than we could have ever
+                                    imagined."</p>
+                                <div class="mt-auto">
+                                    <h4 class="font-semibold text-white text-lg">John & Emily Smith</h4>
+                                    <span class="text-gray-500">Newlyweds</span>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide h-auto">
-                            <div class="testimonial-card">
-                                <p class="card-body italic">"Flawless execution for our product launch. The feedback was
-                                    incredible, and the entire process was stress-free. Highly recommended."</p>
-                                <div class="card-author"><img src="https://randomuser.me/api/portraits/women/50.jpg"
-                                        alt="Samantha Lee">
-                                    <div>
-                                        <h4>Samantha Lee</h4><span>Marketing Director</span>
-                                    </div>
+                            <div class="testimonial-card rounded-lg p-8 text-center flex flex-col items-center h-full">
+                                <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Samantha Lee"
+                                    class="w-20 h-20 rounded-full object-cover border-2 border-brand-gold/50 mb-4">
+                                <p class="text-gray-300 italic mb-6">"Flawless execution for our product launch. The
+                                    feedback was incredible, and the entire process was stress-free. Highly
+                                    recommended."</p>
+                                <div class="mt-auto">
+                                    <h4 class="font-semibold text-white text-lg">Samantha Lee</h4>
+                                    <span class="text-gray-500">Marketing Director, TechSolutions</span>
                                 </div>
                             </div>
                         </div>
@@ -211,22 +609,309 @@
             </div>
         </section>
 
+        <section class="py-24 sm:py-32" id="gallery">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl text-center mx-auto mb-20">
+                    <h2 class="section-heading text-4xl md:text-5xl">Crafted Moments</h2>
+                    <p class="mt-4 text-lg text-gray-400">A glimpse into the unforgettable experiences we've created.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://res.cloudinary.com/dheocxwze/image/upload/v1757513966/rely-tailors/dnrx8sk3pctlhguvuqps.jpg"
+                                alt="Outdoor wedding ceremony"></div>
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://res.cloudinary.com/dheocxwze/image/upload/v1757514227/rely-tailors/yqvvo9aab2lxrjlyuuzb.jpg"
+                                alt="Elegant table decoration detail"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://res.cloudinary.com/dheocxwze/image/upload/v1757514038/rely-tailors/ktdojgu8ibr07rrljnqi.jpg"
+                                alt="Corporate conference speaker"></div>
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://res.cloudinary.com/dheocxwze/image/upload/v1757514803/rely-tailors/qgcnpomgpefciy557g2n.jpg"
+                                alt="Lively party with confetti"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=2070&auto=format&fit=crop"
+                                alt="Bride and groom at outdoor wedding"></div>
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop"
+                                alt="Professionals at a business meeting"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://res.cloudinary.com/dheocxwze/image/upload/v1757514967/rely-tailors/pcvtrt2ideurwtqv7mt0.jpg"
+                                alt="Musician performing at an event"></div>
+                        <div class="gallery-item"><img class="h-auto max-w-full rounded-lg"
+                                src="https://images.unsplash.com/photo-1646781652500-40015cee4917?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Guests enjoying a cocktail party"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="py-32 sm:py-40 text-center" id="contact">
             <div class="container mx-auto px-6">
                 <h2 class="section-heading text-4xl md:text-6xl">Begin Your Story</h2>
-                <p class="section-subheading max-w-2xl mx-auto mt-6">Your vision deserves extraordinary execution. Let's
-                    discuss how we can create a truly memorable event together.</p>
-                <a href="mailto:contact@xoticevent.com" class="btn-primary mt-12 magnetic"><span>Get In Touch</span></a>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto mt-6">Your vision deserves extraordinary execution.
+                    Let's discuss how we can create a truly memorable event together.</p>
+                <a href="mailto:contact@xoticevent.com" class="btn-primary mt-12"><span>Get In Touch</span></a>
             </div>
         </section>
     </main>
 
+    <div id="corporate-detail" class="detail-page">
+        <button class="close-btn">&times;</button>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-5xl md:text-7xl">Corporate Events</h2>
+            <p class="text-lg max-w-3xl mx-auto mt-8">From global conferences to impactful brand activations, we deliver
+                flawless execution that aligns with your strategic goals. Our services include venue sourcing, logistics
+                management, AV production, and creating immersive brand experiences.</p>
+        </div>
+    </div>
+
+    <div id="weddings-detail" class="detail-page">
+        <button class="close-btn">&times;</button>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-5xl md:text-7xl">Luxury Weddings</h2>
+            <p class="text-lg max-w-3xl mx-auto mt-8">Your love story is unique, and your celebration should be too. We
+                specialize in crafting bespoke weddings that are both grand and deeply personal. From destination
+                weddings to intimate local ceremonies, we handle every detail with care and precision.</p>
+        </div>
+    </div>
+
+    <div id="parties-detail" class="detail-page">
+        <button class="close-btn">&times;</button>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-5xl md:text-7xl">Private Parties</h2>
+            <p class="text-lg max-w-3xl mx-auto mt-8">Celebrate life's milestones in unforgettable style. Whether it's a
+                landmark birthday, a significant anniversary, or an exclusive soirée, we design sophisticated and fun
+                events that leave a lasting impression on you and your guests.</p>
+        </div>
+    </div>
+
     <footer class="border-t border-white/10">
         <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            <p>&copy; 2025 Xotic Event. All Rights Reserved. Masterfully Crafted Experiences.</p>
+            <p>&copy; 2024 Xotic Event. All Rights Reserved. Masterfully Crafted Experiences.</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const loaderTimeline = gsap.timeline();
+            loaderTimeline
+                .to('.loader-text', { opacity: 0, duration: 0.5, delay: 1.5 })
+                .to('.loader', { y: '-100%', duration: 1, ease: 'power2.inOut' })
+                .from('#header', { y: -50, opacity: 0, duration: 0.8, ease: 'power2.out' }, "-=0.5")
+                .from('.hero-title .char', {
+                    y: 100,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.8,
+                    ease: 'back.out(1.7)'
+                }, "-=0.5")
+                .to('.hero-subtitle', { opacity: 1, duration: 0.8, ease: 'power2.out' }, "-=0.6")
+                .to('.scroll-indicator', { opacity: 1, duration: 1 }, "-=0.5");
+
+            let scene, camera, renderer, particles;
+            let mouseX = 0, mouseY = 0;
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            function initThree() {
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+                camera.position.z = 400;
+
+                renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+
+                const particleCount = 5000;
+                const geometry = new THREE.BufferGeometry();
+                const positions = new Float32Array(particleCount * 3);
+                const colors = new Float32Array(particleCount * 3);
+
+                const color = new THREE.Color();
+
+                for (let i = 0; i < particleCount; i++) {
+                    const x = Math.random() * 2000 - 1000;
+                    const y = Math.random() * 2000 - 1000;
+                    const z = Math.random() * 2000 - 1000;
+                    positions[i * 3] = x;
+                    positions[i * 3 + 1] = y;
+                    positions[i * 3 + 2] = z;
+
+                    const randomColor = Math.random() > 0.5 ? 0xD4AF37 : 0xFFFFFF;
+                    color.setHex(randomColor);
+                    colors[i * 3] = color.r;
+                    colors[i * 3 + 1] = color.g;
+                    colors[i * 3 + 2] = color.b;
+                }
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+                const material = new THREE.PointsMaterial({
+                    size: 1.5,
+                    vertexColors: true,
+                    blending: THREE.AdditiveBlending,
+                    transparent: true,
+                    opacity: 0.7
+                });
+
+                particles = new THREE.Points(geometry, material);
+                scene.add(particles);
+
+                document.addEventListener('mousemove', onDocumentMouseMove, false);
+                window.addEventListener('resize', onWindowResize, false);
+            }
+
+            function animateThree() {
+                requestAnimationFrame(animateThree);
+                renderThree();
+            }
+
+            function renderThree() {
+                const time = Date.now() * 0.00005;
+                camera.position.x += (mouseX - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                particles.rotation.x = time * 0.2;
+                particles.rotation.y = time * 0.5;
+
+                renderer.render(scene, camera);
+            }
+
+            function onDocumentMouseMove(event) {
+                mouseX = (event.clientX - windowHalfX) / 2;
+                mouseY = (event.clientY - windowHalfY) / 2;
+            }
+
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            initThree();
+            animateThree();
+
+            const sections = gsap.utils.toArray('section, .marquee');
+            sections.forEach((section) => {
+                const heading = section.querySelector('.section-heading');
+                const content = section.querySelectorAll('p, .grid > *, .about-image, .process-step, .swiper');
+
+                if (heading) {
+                    gsap.from(heading, {
+                        scrollTrigger: { trigger: heading, start: 'top 85%', toggleActions: 'play none none reverse' },
+                        y: 50,
+                        opacity: 0,
+                        duration: 1,
+                        ease: 'power3.out'
+                    });
+                }
+                if (content.length > 0) {
+                    gsap.from(content, {
+                        scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none reverse' },
+                        y: 50,
+                        opacity: 0,
+                        duration: 1,
+                        stagger: 0.15,
+                        ease: 'power3.out'
+                    });
+                }
+            });
+
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            new Swiper('.testimonials-slider', {
+                loop: true,
+                spaceBetween: 30,
+                slidesPerView: 1,
+                grabCursor: true,
+                autoplay: { delay: 5000, disableOnInteraction: false },
+                pagination: { el: '.swiper-pagination', clickable: true },
+                breakpoints: {
+                    768: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 }
+                }
+            });
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('translate-x-full');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href').length > 1) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            const learnMoreButtons = document.querySelectorAll('.btn-learn-more');
+            const closeButtons = document.querySelectorAll('.close-btn');
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', e => {
+                    e.preventDefault();
+                    const service = button.dataset.service;
+                    const detailPage = document.getElementById(`${service}-detail`);
+
+                    gsap.to('body', { overflow: 'hidden', duration: 0 });
+                    gsap.to(detailPage, {
+                        opacity: 1,
+                        pointerEvents: 'auto',
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', e => {
+                    const detailPage = button.parentElement;
+                    gsap.to(detailPage, {
+                        opacity: 0,
+                        pointerEvents: 'none',
+                        duration: 0.5,
+                        ease: 'power2.in'
+                    });
+                    gsap.to('body', { overflow: 'auto', duration: 0, delay: 0.5 });
+                });
+            });
+
+        });
+    </script>
 </body>
 
 </html>
