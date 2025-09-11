@@ -1,232 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xotic Event - Masterfully Crafted Moments</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Exotic Events - Capture Every Moment</title>
     <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-
-<body class="bg-brand-dark text-gray-300">
-
-    <div class="cursor"></div>
-
-    <div class="loader">
-        <div class="loader-text">XOTIC</div>
+<body>
+   <header class="topbar">
+    <div class="topbar-content">
+        <p class="promo-text">
+            🎉 Limited Time Offer! <span class="discount-highlight">Get 20% OFF</span> Your First Event Booking. <a href="#" class="promo-link">Save Now!</a>
+        </p>
     </div>
-
-    <div class="background-effects">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-        <div class="aurora-cursor"></div>
-    </div>
-
-    <header class="fixed top-0 left-0 w-full z-50 opacity-0" id="header">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold tracking-widest text-brand-gold magnetic"
-                    style="font-family: var(--font-heading);">XOTIC</a>
-                <ul class="hidden md:flex items-center space-x-10">
-                    <li><a href="#home" class="nav-link magnetic">Home</a></li>
-                    <li><a href="#services" class="nav-link magnetic">Services</a></li>
-                    <li><a href="#about" class="nav-link magnetic">About</a></li>
-                    <li><a href="#testimonials" class="nav-link magnetic">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-link magnetic">Contact</a></li>
-                </ul>
-                <div class="flex items-center space-x-4">
-                    <button id="theme-toggle"
-                        class="p-2 rounded-lg text-brand-gold/70 hover:text-brand-gold hover:bg-white/10 transition-colors magnetic">
-                    </button>
+</header>
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">EXOTIC<br>EVENTS</div>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li class="dropdown">
+                <a href="#">SERVICES <span class="arrow-down"></span></a>
+                <div class="dropdown-content">
+                    <a href="#">Weddings</a>
+                    <a href="#">Concerts</a>
+                    <a href="#">Corporate</a>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </li>
+            <li><a href="#">CONTACT US</a></li>
+            <li><button class="btn-get-started">GET STARTED</button></li>
+        </ul>
 
-    <main id="main-content">
-
-        <section class="h-screen flex items-center justify-center text-center overflow-hidden" id="home">
-            <div class="relative z-10 px-4">
-                <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl font-bold text-brand-gold-light">
-                    <span class="char">X</span><span class="char">O</span><span class="char">T</span><span
-                        class="char">I</span><span class="char">C</span>
-                </h1>
-                <p class="hero-subtitle text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mt-4">
-                    Unforgettable Moments, Masterfully Crafted.
-                </p>
-            </div>
-            <div class="scroll-indicator">
-                <span>SCROLL</span>
-                <div class="line"></div>
-            </div>
-        </section>
-
-        <div class="marquee">
-            <div class="marquee-content">
-                <span>Luxury Weddings</span><span class="text-brand-gold">•</span>
-                <span>Corporate Galas</span><span class="text-brand-gold">•</span>
-                <span>Bespoke Events</span><span class="text-brand-gold">•</span>
-                <span>Meticulous Planning</span><span class="text-brand-gold">•</span>
-                <span>Creative Design</span><span class="text-brand-gold">•</span>
-            </div>
-            <div class="marquee-content" aria-hidden="true">
-                <span>Luxury Weddings</span><span class="text-brand-gold">•</span>
-                <span>Corporate Galas</span><span class="text-brand-gold">•</span>
-                <span>Bespoke Events</span><span class="text-brand-gold">•</span>
-                <span>Meticulous Planning</span><span class="text-brand-gold">•</span>
-                <span>Creative Design</span><span class="text-brand-gold">•</span>
-            </div>
+        <div class="hamburger" id="hamburger-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-
-        <section class="py-24 sm:py-32" id="services">
-            <div class="container mx-auto px-6">
-                <div class="max-w-3xl text-center mx-auto">
-                    <h2 class="section-heading">Our Expertise</h2>
-                    <p class="section-subheading">From grand galas to intimate gatherings, we design, manage, and
-                        execute with unparalleled precision.</p>
+    </div>
+</nav>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-subtext-left">Exotic Events</div>
+                <div class="hero-subtext-right">
+                    Vulpulate integer ultricies orci gravida erat vitae
+                    neque. Mi sed nullam sed amet. Rhoncus orci
+                    pulvinar feugiat tristique lacus.
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-                    <div class="service-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Corporate Events</h3>
-                            <p class="card-body">Elevating your brand with seamless conferences, product launches, and
-                                prestigious award ceremonies.</p>
-                        </div>
+                <h1 class="hero-headline">
+                    CAPTURE<br>EVERY MOMENT
+                </h1>
+                <button class="btn-book-session">BOOK YOUR SESSION</button>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12K+</div>
+                        <div class="stat-label">Hours Behind the<br>Lens</div>
                     </div>
-                    <div class="service-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Luxury Weddings</h3>
-                            <p class="card-body">Curating timeless, breathtaking celebrations that reflect your unique
-                                love story.</p>
-                        </div>
-                    </div>
-                    <div class="service-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Private Parties</h3>
-                            <p class="card-body">Designing exclusive and memorable milestone birthdays, anniversaries,
-                                and private soirées.</p>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Photo Sessions<br>Completed</div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="py-24 sm:py-32" id="about">
-            <div class="container mx-auto px-6">
-                <div class="text-left mb-20">
-                    <h2 class="section-heading">The Art of Perfection</h2>
-                    <p class="section-subheading">We are architects of atmosphere, weaving creative vision and
-                        meticulous detail into every moment.</p>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="about-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSB0j4lvMq-yNHPEl6A1ge51SLQg-RQIHL8w&s"
-                            alt="Creative event design"
-                            class="w-full h-full object-cover rounded-lg shadow-2xl shadow-black/50">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-brand-gold mb-4" style="font-family: var(--font-heading);">A
-                            Decade of Distinction</h3>
-                        <p class="text-gray-400 mb-8">For over 10 years, Xotic Event has been the trusted name behind
-                            the most talked-about events. Our philosophy is simple: your vision is our blueprint. We
-                            combine passion with precision to create experiences that are not only seen and heard but
-                            felt long after the last guest departs.</p>
-                        <div class="grid grid-cols-2 gap-8 text-center">
-                            <div>
-                                <span class="counter-number" data-target="250">0</span>
-                                <p class="text-sm uppercase tracking-widest text-gray-500">Events Planned</p>
-                            </div>
-                            <div>
-                                <span class="counter-number" data-target="99">0</span>
-                                <p class="text-sm uppercase tracking-widest text-gray-500">Client Satisfaction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 sm:py-32" id="testimonials">
-            <div class="container mx-auto px-6">
-                <div class="max-w-3xl text-center mx-auto">
-                    <h2 class="section-heading">Words of Acclaim</h2>
-                    <p class="section-subheading">Our success is measured by the memories we create and the praise we
-                        receive.</p>
-                </div>
-                <div class="swiper testimonials-slider mt-20">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide h-auto">
-                            <div class="testimonial-card">
-                                <p class="card-body italic">"Unparalleled professionalism. Xotic transformed our annual
-                                    gala into a landmark event. Truly in a class of their own."</p>
-                                <div class="card-author"><img src="https://randomuser.me/api/portraits/women/44.jpg"
-                                        alt="Jane Doe">
-                                    <div>
-                                        <h4>Jane Doe</h4><span>CEO, Innovate Corp</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide h-auto">
-                            <div class="testimonial-card">
-                                <p class="card-body italic">"Our wedding was a fairytale, all thanks to the Xotic team.
-                                    They took our vision and made it more beautiful than we could have ever imagined."
-                                </p>
-                                <div class="card-author"><img src="https://randomuser.me/api/portraits/men/32.jpg"
-                                        alt="John Smith">
-                                    <div>
-                                        <h4>John & Emily Smith</h4><span>Newlyweds</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide h-auto">
-                            <div class="testimonial-card">
-                                <p class="card-body italic">"Flawless execution for our product launch. The feedback was
-                                    incredible, and the entire process was stress-free. Highly recommended."</p>
-                                <div class="card-author"><img src="https://randomuser.me/api/portraits/women/50.jpg"
-                                        alt="Samantha Lee">
-                                    <div>
-                                        <h4>Samantha Lee</h4><span>Marketing Director</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination mt-12 relative"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-32 sm:py-40 text-center" id="contact">
-            <div class="container mx-auto px-6">
-                <h2 class="section-heading text-4xl md:text-6xl">Begin Your Story</h2>
-                <p class="section-subheading max-w-2xl mx-auto mt-6">Your vision deserves extraordinary execution. Let's
-                    discuss how we can create a truly memorable event together.</p>
-                <a href="mailto:contact@xoticevent.com" class="btn-primary mt-12 magnetic"><span>Get In Touch</span></a>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-white/10">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            <p>&copy; 2025 Xotic Event. All Rights Reserved. Masterfully Crafted Experiences.</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
