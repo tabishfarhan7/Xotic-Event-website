@@ -24,25 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Animated Counters and Scroll Animations Logic ---
+    // --- Animated Counters and Scroll Animations Logic (IntersectionObserver) ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-
-                // Check if the visible element is an achievement item for counter
                 if (entry.target.classList.contains('achievement-item')) {
                     const numberElement = entry.target.querySelector('.achievement-number');
                     if (numberElement && !numberElement.classList.contains('is-animated')) {
-                        numberElement.classList.add('is-animated'); // Prevents re-animating
+                        numberElement.classList.add('is-animated');
                         animateCounter(numberElement);
                     }
                 }
-
-                // Unobserve after animation to improve performance
-                // observer.unobserve(entry.target);
             }
         });
     }, {
@@ -53,24 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
-    // Function to animate the numbers counting up
     function animateCounter(element) {
         const goal = parseInt(element.getAttribute('data-goal'));
         let current = 0;
-        const duration = 2000; // 2 seconds
+        const duration = 2000;
         const stepTime = Math.abs(Math.floor(duration / goal));
-
         const timer = setInterval(() => {
             current += 1;
             element.textContent = `${current}+`;
             if (current >= goal) {
                 clearInterval(timer);
-                element.textContent = `${goal}+`; // Ensure it ends on the exact number
+                element.textContent = `${goal}+`;
             }
         }, stepTime);
     }
 
-    // --- NEW: Portfolio Filtering Logic ---
+    // --- Portfolio Filtering Logic ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -78,12 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.dataset.filter;
-
-                // Update button styles
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-
-                // Show/hide portfolio items
                 portfolioItems.forEach(item => {
                     if (filter === 'all' || item.dataset.category === filter) {
                         item.classList.remove('hidden');
@@ -95,7 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- NEW: Testimonial Slider Logic ---
+    // --- LightGallery Initialization ---
+    const galleryContainer = document.getElementById('lightgallery-container');
+    if (galleryContainer) {
+        lightGallery(galleryContainer, {
+            selector: '.portfolio-item',
+            speed: 500,
+            download: false,
+            getCaptionFromTitleOrAlt: true,
+        });
+    }
+
+    // --- Testimonial Slider Logic ---
     const testimonialContainer = document.getElementById('testimonial-container');
     if (testimonialContainer) {
         const allTestimonials = testimonialContainer.querySelectorAll('.testimonial-item');
@@ -110,25 +110,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (allTestimonials.length > 0) {
-            showTestimonial(0); // Show the first item initially
-
+            showTestimonial(0);
             if (prevButton && nextButton) {
                 prevButton.addEventListener('click', () => {
                     currentTestimonial = (currentTestimonial - 1 + allTestimonials.length) % allTestimonials.length;
                     showTestimonial(currentTestimonial);
                 });
-
                 nextButton.addEventListener('click', () => {
                     currentTestimonial = (currentTestimonial + 1) % allTestimonials.length;
                     showTestimonial(currentTestimonial);
                 });
             }
-
-            // Auto-play interval
             setInterval(() => {
                 currentTestimonial = (currentTestimonial + 1) % allTestimonials.length;
                 showTestimonial(currentTestimonial);
-            }, 6000); // Change slide every 6 seconds
+            }, 6000);
         }
     }
+
+    // --- Why Us Accordion Logic ---
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    const accordionImages = document.querySelectorAll('.why-us-image-wrapper');
+
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+            const itemNumber = header.dataset.accordion;
+            const isActive = item.classList.contains('active');
+
+            accordionItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            accordionImages.forEach(image => {
+                image.classList.remove('active');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+                document.querySelector(`.why-us-image-wrapper[data-image="${itemNumber}"]`).classList.add('active');
+            }
+        });
+    });
 });

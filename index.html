@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xotic Events - Capture Every Moment</title>
+    <title>Xotic Events - Crafting Unforgettable Moments</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
 <body>
@@ -28,26 +31,18 @@
             </p>
         </div>
     </header>
+
     <nav class="navbar">
         <div class="container">
             <div class="logo">Xotic<br>EVENTS</div>
-
             <ul class="nav-links" id="nav-links">
                 <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li class="dropdown">
-                    <a href="#">SERVICES <span class="arrow-down"></span></a>
-                    <div class="dropdown-content">
-                        <a href="#">Weddings</a>
-                        <a href="#">Concerts</a>
-                        <a href="#">Corporate</a>
-                    </div>
-                </li>
-                <li><a href="#">PORTFOLIO</a></li>
-                <li><a href="#">CONTACT US</a></li>
-                <li><button class="btn-get-started">GET STARTED</button></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#portfolio">PORTFOLIO</a></li>
+                <li><a href="#contact">CONTACT US</a></li>
+                <li><a href="#contact" class="btn-secondary">GET STARTED</a></li>
             </ul>
-
             <div class="hamburger" id="hamburger-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -58,74 +53,102 @@
     <div id="overlay"></div>
 
     <section class="hero-section">
+        <div class="hero-video-wrapper">
+            <video playsinline autoplay muted loop poster="assets/images/hero.jpg">
+                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-subtext-left">Xotic Events</div>
-            <div class="hero-subtext-right">
-                Vulpulate integer ultricies orci gravida erat vitae
-                neque. Mi sed nullam sed amet. Rhoncus orci
-                pulvinar feugiat tristique lacus.
-            </div>
-
-            <div class="hero-content-main">
+            <div class="hero-content">
+                <span class="sub-heading">Xotic Events</span>
                 <h1 class="hero-headline">
-                    CAPTURE<br>EVERY MOMENT
+                    Crafting Unforgettable <span class="text-gold">Moments</span>
                 </h1>
-                <button class="btn-book-session">BOOK YOUR SESSION</button>
-            </div>
-
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">12K+</div>
-                    <div class="stat-label">Hours Behind the<br>Lens</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Photo Sessions<br>Completed</div>
-                </div>
+                <p class="hero-subheadline">
+                    We design, plan, and execute exceptional events that leave a lasting impression, from grand galas to
+                    intimate celebrations.
+                </p>
+                <a href="#contact" class="btn-primary" style="margin-top: 20px;">Book a Consultation</a>
             </div>
         </div>
     </section>
-
-    <section class="image-banner-section">
-        <div class="image-banner-content">
-            <h2 class="banner-headline">
-                YOUR VISION, <br> OUR EXPERTISE
-            </h2>
-            <p class="banner-text">
-                From grand galas to intimate celebrations, we bring your unique story to life with meticulous
-                planning and creative flair.
-            </p>
-            <button class="btn-book-session banner-btn">DISCOVER MORE</button>
-        </div>
-    </section>
-
-    <section class="about-section">
+    <section class="about-section" id="about">
         <div class="container-wide">
-            <div class="about-grid">
-                <div class="about-text-left animate-on-scroll">
-                    <span class="sub-heading">WHO WE ARE</span>
-                    <h2 class="about-headline">
-                        Crafting Visual Stories Through Events
+            <div class="about-layout-grid">
+                <div class="about-image-column">
+                    <img src="assets/images/hero.jpg" alt="A beautifully decorated event table setting">
+                </div>
+                <div class="about-text-column">
+                    <span class="sub-heading">Who We Are</span>
+                    <h2 class="about-headline">More Than Planners—<br>We Are <span class="text-gold">Storytellers</span>
                     </h2>
+                    <p>At Xotic Events, we see every occasion as a unique story waiting to be told. Our passion is
+                        transforming your vision into an immersive reality. We are architects of atmosphere, curators of
+                        detail, and producers of flawless experiences.</p>
+                    <div class="stats-integrated">
+                        <div class="stat-item">
+                            <div class="stat-number">12K+</div>
+                            <div class="stat-label">Hours of Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Events Completed</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-text-right animate-on-scroll">
-                    <p>
-                        At Xotic Events, we believe every occasion is a unique story waiting to be told. Our
-                        passion is transforming your vision into an immersive reality. We are architects of
-                        atmosphere, curators of detail, and producers of flawless experiences.
-                    </p>
-                    <p>
-                        With over a decade of expertise, our team handles every detail with precision and creative
-                        flair, ensuring your event is not just successful, but truly unforgettable.
-                    </p>
-                </div>
-            </div>
-            <div class="about-image-wrapper animate-on-scroll">
-                <img src="assets/images/hero.jpg" alt="Xotic Events team planning an event">
             </div>
         </div>
     </section>
-
+    <section class="services-section" id="services">
+        <div class="container-wide">
+            <div class="services-header-block">
+                <span class="sub-heading">What We Do</span>
+                <h2 class="services-headline">Expertise For Every <span class="text-gold">Occasion</span></h2>
+            </div>
+            <div class="services-grid">
+                <a href="#" class="service-card">
+                    <div class="service-card-bg"
+                        style="background-image: url('https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    </div>
+                    <div class="service-card-content">
+                        <div class="card-text">
+                            <h3 class="service-title">Weddings</h3>
+                            <p class="service-description">Crafting timeless celebrations that reflect your unique love
+                                story.</p>
+                        </div>
+                        <span class="service-arrow">&rarr;</span>
+                    </div>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="service-card-bg"
+                        style="background-image: url('https://images.pexels.com/photos/2058130/pexels-photo-2058130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    </div>
+                    <div class="service-card-content">
+                        <div class="card-text">
+                            <h3 class="service-title">Corporate</h3>
+                            <p class="service-description">Executing flawless conferences, galas, and brand activations.
+                            </p>
+                        </div>
+                        <span class="service-arrow">&rarr;</span>
+                    </div>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="service-card-bg"
+                        style="background-image: url('https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    </div>
+                    <div class="service-card-content">
+                        <div class="card-text">
+                            <h3 class="service-title">Concerts & Parties</h3>
+                            <p class="service-description">Producing electrifying concerts and unforgettable private
+                                parties.</p>
+                        </div>
+                        <span class="service-arrow">&rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
     <section class="achievements-section">
         <div class="container-wide">
             <div class="achievements-grid">
@@ -154,96 +177,96 @@
                     </p>
                 </div>
             </div>
-
-            <div class="achievements-cta animate-on-scroll">
-                <a href="/about-us" class="btn-book-session">LEARN MORE ABOUT US</a>
-            </div>
         </div>
     </section>
 
     <section class="why-us-section">
         <div class="container-wide">
-            <div class="why-us-header">
-                <div class="why-us-header-img animate-on-scroll">
-                    <img src="assets/images/enhanced.jpg" alt="Artistic event detail">
-                </div>
-                <div class="why-us-header-text animate-on-scroll">
-                    <span class="why-us-subheading">THE Xotic EVENTS DIFFERENCE</span>
-                    <h2 class="why-us-headline">
-                        Where Vision <br>Meets Flawless Execution
-                    </h2>
-                    <p class="why-us-intro">
-                        We don't just plan events; we craft legacies. Our commitment to innovation, precision, and
-                        personalized service ensures every moment is spectacular.
-                    </p>
-                </div>
+            <div class="why-us-header-block">
+                <span class="sub-heading">The Xotic Difference</span>
+                <h2 class="why-us-headline">Where Vision Meets <span class="text-gold">Flawless Execution</span></h2>
             </div>
-            <div class="why-us-grid">
-                <div class="why-us-item animate-on-scroll">
-                    <span class="why-us-item-number">01</span>
-                    <h3 class="why-us-item-title">Creative Vision</h3>
-                    <p class="why-us-item-subtitle">INNOVATIVE CONCEPTS</p>
-                    <p class="why-us-item-desc">
-                        Our team brings fresh, imaginative ideas to the table, ensuring your event stands out and
-                        captivates your audience.
-                    </p>
+            <div class="why-us-interactive-layout">
+                <div class="why-us-image-panel">
+                    <div class="why-us-image-wrapper active" data-image="1">
+                        <img src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Creative Vision">
+                    </div>
+                    <div class="why-us-image-wrapper" data-image="2">
+                        <img src="https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Seamless Planning">
+                    </div>
+                    <div class="why-us-image-wrapper" data-image="3">
+                        <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Tailored Experiences">
+                    </div>
+                    <div class="why-us-image-wrapper" data-image="4">
+                        <img src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Trusted Network">
+                    </div>
                 </div>
-                <div class="why-us-item animate-on-scroll">
-                    <span class="why-us-item-number">02</span>
-                    <h3 class="why-us-item-title">Seamless Planning</h3>
-                    <p class="why-us-item-subtitle">METICULOUS ORGANIZATION</p>
-                    <p class="why-us-item-desc">
-                        From the first idea to the final curtain call, every detail is expertly managed, leaving you
-                        free to enjoy the experience.
-                    </p>
-                </div>
-                <div class="why-us-item animate-on-scroll">
-                    <span class="why-us-item-number">03</span>
-                    <h3 class="why-us-item-title">Tailored Experiences</h3>
-                    <p class="why-us-item-subtitle">PERSONALIZED SERVICE</p>
-                    <p class="why-us-item-desc">
-                        We listen, understand, and adapt to your unique needs, delivering bespoke solutions that reflect
-                        your individual style.
-                    </p>
-                </div>
-                <div class="why-us-item animate-on-scroll">
-                    <span class="why-us-item-number">04</span>
-                    <h3 class="why-us-item-title">Trusted Network</h3>
-                    <p class="why-us-item-subtitle">ELITE PARTNERSHIPS</p>
-                    <p class="why-us-item-desc">
-                        Access to the best venues, vendors, and talent, ensuring every aspect of your event meets the
-                        highest standards.
-                    </p>
+                <div class="why-us-accordion-panel">
+                    <div class="accordion-item active">
+                        <div class="accordion-header" data-accordion="1">
+                            <h3><span class="item-number">01</span>Creative Vision</h3>
+                            <span class="accordion-icon"></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Our team brings fresh, imaginative ideas to the table, ensuring your event stands out and
+                                captivates your audience.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="2">
+                            <h3><span class="item-number">02</span>Seamless Planning</h3>
+                            <span class="accordion-icon"></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>From the first idea to the final curtain call, every detail is expertly managed, leaving
+                                you free to enjoy the experience.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="3">
+                            <h3><span class="item-number">03</span>Tailored Experiences</h3>
+                            <span class="accordion-icon"></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We listen, understand, and adapt to your unique needs, delivering bespoke solutions that
+                                reflect your individual style.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="4">
+                            <h3><span class="item-number">04</span>Trusted Network</h3>
+                            <span class="accordion-icon"></span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Access to the best venues, vendors, and talent, ensuring every aspect of your event meets
+                                the highest standards.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="marquee-section">
         <div class="marquee-content">
-            <span class="marquee-item">Luxury</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Bespoke</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Sophisticated</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Unforgettable</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Luxury</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Bespoke</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Sophisticated</span>
-            <span class="marquee-divider">&bull;</span>
-            <span class="marquee-item">Unforgettable</span>
-            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Luxury</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Bespoke</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Sophisticated</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Unforgettable</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Luxury</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Bespoke</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Sophisticated</span><span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">Unforgettable</span><span class="marquee-divider">&bull;</span>
         </div>
     </section>
 
     <section class="portfolio-section" id="portfolio">
         <div class="container-wide">
             <div class="portfolio-header animate-on-scroll">
-                <span class="sub-heading">OUR WORK</span>
+                <span class="sub-heading">Our Work</span>
                 <h2 class="about-headline">Memorable Celebrations</h2>
             </div>
             <div class="portfolio-filters animate-on-scroll">
@@ -252,78 +275,76 @@
                 <button class="filter-btn" data-filter="corporate">Corporate</button>
                 <button class="filter-btn" data-filter="parties">Parties</button>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item animate-on-scroll" data-category="weddings">
-                    <div class="portfolio-image-wrapper">
-                        <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600"
-                            alt="Wedding">
-                    </div>
+            <div class="portfolio-grid" id="lightgallery-container">
+                <a href="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg" class="portfolio-item"
+                    data-category="weddings">
+                    <div class="portfolio-image-wrapper"><img
+                            src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Wedding"></div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-text">
                             <h3>Enchanted Garden Wedding</h3>
                             <p>Weddings</p>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item animate-on-scroll" data-category="corporate">
-                    <div class="portfolio-image-wrapper">
-                        <img src="https://images.pexels.com/photos/2058130/pexels-photo-2058130.jpeg?auto=compress&cs=tinysrgb&w=600"
-                            alt="Corporate Gala">
-                    </div>
+                </a>
+                <a href="https://images.pexels.com/photos/2058130/pexels-photo-2058130.jpeg" class="portfolio-item"
+                    data-category="corporate">
+                    <div class="portfolio-image-wrapper"><img
+                            src="https://images.pexels.com/photos/2058130/pexels-photo-2058130.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Corporate Gala"></div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-text">
                             <h3>Annual Corporate Gala</h3>
                             <p>Corporate</p>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item animate-on-scroll" data-category="parties">
-                    <div class="portfolio-image-wrapper">
-                        <img src="https://images.pexels.com/photos/3801463/pexels-photo-3801463.jpeg?auto=compress&cs=tinysrgb&w=600"
-                            alt="Birthday Bash">
-                    </div>
+                </a>
+                <a href="https://images.pexels.com/photos/3801463/pexels-photo-3801463.jpeg" class="portfolio-item"
+                    data-category="parties">
+                    <div class="portfolio-image-wrapper"><img
+                            src="https://images.pexels.com/photos/3801463/pexels-photo-3801463.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Birthday Bash"></div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-text">
                             <h3>Milestone Birthday Bash</h3>
                             <p>Parties</p>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item animate-on-scroll" data-category="corporate">
-                    <div class="portfolio-image-wrapper">
-                        <img src="assets/images/4765.jpg" alt="Product Launch">
-                    </div>
+                </a>
+                <a href="assets/images/4765.jpg" class="portfolio-item" data-category="corporate">
+                    <div class="portfolio-image-wrapper"><img src="assets/images/4765.jpg" alt="Product Launch"></div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-text">
                             <h3>Luxury Product Launch</h3>
                             <p>Corporate</p>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item animate-on-scroll" data-category="weddings">
-                    <div class="portfolio-image-wrapper">
-                        <img src="https://images.pexels.com/photos/2253862/pexels-photo-2253862.jpeg?auto=compress&cs=tinysrgb&w=600"
-                            alt="Ballroom Reception">
-                    </div>
+                </a>
+                <a href="https://images.pexels.com/photos/2253862/pexels-photo-2253862.jpeg" class="portfolio-item"
+                    data-category="weddings">
+                    <div class="portfolio-image-wrapper"><img
+                            src="https://images.pexels.com/photos/2253862/pexels-photo-2253862.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Ballroom Reception"></div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-text">
                             <h3>Timeless Ballroom Reception</h3>
                             <p>Weddings</p>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item animate-on-scroll" data-category="parties">
-                    <div class="portfolio-image-wrapper">
-                        <img src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
-                            alt="Glamour Soirée">
-                    </div>
+                </a>
+                <a href="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg" class="portfolio-item"
+                    data-category="parties">
+                    <div class="portfolio-image-wrapper"><img
+                            src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Glamour Soirée"></div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-text">
                             <h3>Vintage Glamour Soirée</h3>
                             <p>Parties</p>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -360,7 +381,7 @@
         </div>
     </section>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="contact">
         <div class="container-wide">
             <div class="subscribe-section">
                 <div class="subscribe-text">
@@ -375,48 +396,39 @@
                     </form>
                 </div>
             </div>
-
             <div class="main-footer">
                 <div class="footer-column about">
                     <h4 class="logo">Xotic<br>EVENTS</h4>
                     <p>Feel free to call us in working hours Mon - Fri (9:00 - 17:00). Our team will be happy to help
                         answer your queries.</p>
-                    <p class="contact-info">
-                        📞 +1 (333) 000-0000
-                    </p>
+                    <p class="contact-info">📞 +1 (333) 000-0000</p>
                     <div class="social-icons">
-                        <a href="#" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                        <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                            </svg></a>
+                        <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
                                 </path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                            </svg></a>
+                        <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
+                            </svg></a>
                     </div>
                 </div>
                 <div class="footer-column links">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#">Studio Location</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
@@ -424,24 +436,23 @@
                 <div class="footer-column links">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Weddings</a></li>
-                        <li><a href="#">Corporate Events</a></li>
-                        <li><a href="#">Concerts</a></li>
-                        <li><a href="#">Private Parties</a></li>
+                        <li><a href="#services">Weddings</a></li>
+                        <li><a href="#services">Corporate Events</a></li>
+                        <li><a href="#services">Concerts</a></li>
+                        <li><a href="#services">Private Parties</a></li>
                     </ul>
                 </div>
                 <div class="footer-column links">
                     <h4>Our Work</h4>
                     <ul>
-                        <li><a href="#">Wedding Gallery</a></li>
-                        <li><a href="#">Corporate Gallery</a></li>
-                        <li><a href="#">Featured Events</a></li>
+                        <li><a href="#portfolio">Wedding Gallery</a></li>
+                        <li><a href="#portfolio">Corporate Gallery</a></li>
+                        <li><a href="#portfolio">Featured Events</a></li>
                         <li><a href="#">Client Stories</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <div class="sub-footer">
             <div class="container-wide">
                 <p>Copyright © 2025 Xotic Events</p>
@@ -453,8 +464,14 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+
     <script src="preloader.js"></script>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
+
 </body>
 
 </html>
