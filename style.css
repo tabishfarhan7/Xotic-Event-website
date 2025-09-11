@@ -398,6 +398,216 @@ h6 {
 }
 
 
+/* image banner section  */
+/* --- New Image Banner Section --- */
+.image-banner-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    /* Adjust height as needed */
+    background-image: url(assets/images/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    /* Ensures content doesn't spill out */
+}
+
+/* Optional: Add an overlay to make text more readable */
+.image-banner-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    z-index: 1;
+}
+
+.image-banner-content {
+    position: relative;
+    z-index: 2;
+    /* Ensure content is above the overlay */
+    max-width: 800px;
+    /* Limit content width */
+    padding: 20px;
+}
+
+.banner-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5em;
+    /* Large headline */
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.banner-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15em;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-btn {
+
+    background-color: var(--golden-accent);
+    /* Make this button golden */
+    color: #000;
+    padding: 18px 45px;
+    /* Slightly larger button */
+    font-size: 1.1em;
+    border-radius: 5px;
+    /* Slightly more rounded */
+}
+
+.banner-btn:hover {
+    background-color: var(--golden-hover);
+    color: #000;
+}
+
+
+/* --- Responsive Adjustments for Image Banner --- */
+@media (max-width: 992px) {
+    .image-banner-section {
+        height: 500px;
+        /* Adjust height for tablets */
+    }
+
+    .banner-headline {
+        font-size: 3.5em;
+        /* Smaller headline on tablets */
+    }
+
+    .banner-text {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .banner-btn {
+        padding: 15px 35px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-banner-section {
+        height: 400px;
+        /* Even smaller height for phones */
+    }
+
+    .banner-headline {
+        font-size: 2.5em;
+        /* Smallest headline on phones */
+    }
+
+    .banner-text {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+        padding: 0 15px;
+        /* Add horizontal padding for text */
+    }
+
+    .banner-btn {
+        padding: 12px 30px;
+        font-size: 0.9em;
+    }
+}
+
+
+
+/* --- "About Us" Section --- */
+.about-section {
+    padding: 120px 0;
+    background-color: #050505;
+    /* Slightly off-black for depth */
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    /* 2-column layout */
+    gap: 80px;
+    align-items: flex-start;
+    /* Align to the top */
+    margin-bottom: 80px;
+}
+
+.sub-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--golden-accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.about-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5em;
+    line-height: 1.1;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.about-text-right p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 25px 0;
+}
+
+.about-image-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Ensures the image respects the border-radius */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Removes bottom space under image */
+}
+
+/* --- Scroll Animation Styles --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add delays for a staggered effect */
+.about-text-right.animate-on-scroll.visible {
+    transition-delay: 0.2s;
+}
+
+.about-image-wrapper.animate-on-scroll.visible {
+    transition-delay: 0.4s;
+}
+
+
 /* --- Responsive Design (Mobile) --- */
 @media (max-width: 992px) {
 
@@ -528,5 +738,20 @@ h6 {
         margin-top: 60px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        /* Stack columns on tablets and mobile */
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .about-headline {
+        font-size: 3.5em;
     }
 }
