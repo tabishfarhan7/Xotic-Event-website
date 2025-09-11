@@ -536,9 +536,9 @@ h6 {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; 
+    grid-template-columns: 1fr 1.5fr;
     gap: 80px;
-    align-items: center; 
+    align-items: center;
     margin-bottom: 80px;
     padding-left: 2rem;
 }
@@ -603,6 +603,7 @@ h6 {
 .about-text-right.animate-on-scroll.visible {
     transition-delay: 0.2s;
 }
+
 .about-image-wrapper.animate-on-scroll.visible {
     transition-delay: 0.4s;
 }
@@ -611,26 +612,33 @@ h6 {
 /* --- Responsive Adjustments for "About Us" Section --- */
 @media (max-width: 992px) {
     .about-section {
-        padding: 80px 20px; /* Add horizontal padding for smaller screens */
-        text-align: center; /* Center-align text for a cleaner mobile look */
+        padding: 80px 20px;
+        /* Add horizontal padding for smaller screens */
+        text-align: center;
+        /* Center-align text for a cleaner mobile look */
     }
 
     .about-grid {
-        grid-template-columns: 1fr; /* Stack columns on tablets and mobile */
-        gap: 20px; /* Reduce gap */
+        grid-template-columns: 1fr;
+        /* Stack columns on tablets and mobile */
+        gap: 20px;
+        /* Reduce gap */
         margin-bottom: 50px;
     }
 
     .about-text-right {
-        max-width: 600px; /* Limit paragraph width for readability */
-        margin: 0 auto; /* Center the paragraph block */
+        max-width: 600px;
+        /* Limit paragraph width for readability */
+        margin: 0 auto;
+        /* Center the paragraph block */
     }
-    
+
     .about-headline {
         font-size: 3.5em;
-        margin-top: 10px; /* Add some space above headline when stacked */
+        margin-top: 10px;
+        /* Add some space above headline when stacked */
     }
-    
+
     .sub-heading {
         margin-bottom: 10px;
     }
@@ -638,8 +646,10 @@ h6 {
 
 @media (max-width: 576px) {
     .about-headline {
-        font-size: 2.8em; /* Further reduce font size for small phones */
+        font-size: 2.8em;
+        /* Further reduce font size for small phones */
     }
+
     .about-text-right p {
         font-size: 1em;
     }
@@ -670,8 +680,13 @@ h6 {
 }
 
 @keyframes background-pan {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-50%, -50%); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
 }
 
 .achievements-grid {
@@ -724,6 +739,7 @@ h6 {
 .achievement-item:nth-child(2).animate-on-scroll.visible {
     transition-delay: 0.2s;
 }
+
 .achievement-item:nth-child(3).animate-on-scroll.visible {
     transition-delay: 0.4s;
 }
@@ -753,7 +769,7 @@ h6 {
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: 'Montserrat', sans-serif;
 
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .btn-book-session:hover {
@@ -764,13 +780,24 @@ h6 {
 
 /* --- Responsive Styles --- */
 @media (max-width: 992px) {
-    .achievements-grid { gap: 20px; }
-    .achievement-number { font-size: 5em; }
-    .achievement-title { font-size: 1.3em; }
+    .achievements-grid {
+        gap: 20px;
+    }
+
+    .achievement-number {
+        font-size: 5em;
+    }
+
+    .achievement-title {
+        font-size: 1.3em;
+    }
 }
 
 @media (max-width: 768px) {
-    .achievements-section { padding: 80px 20px; }
+    .achievements-section {
+        padding: 80px 20px;
+    }
+
     .achievements-grid {
         grid-template-columns: 1fr;
         gap: 60px;
@@ -884,10 +911,22 @@ h6 {
 .why-us-header .why-us-header-text.animate-on-scroll.visible {
     transition-delay: 0.2s;
 }
-.why-us-grid .why-us-item:nth-child(1).animate-on-scroll.visible { transition-delay: 0.4s; }
-.why-us-grid .why-us-item:nth-child(2).animate-on-scroll.visible { transition-delay: 0.6s; }
-.why-us-grid .why-us-item:nth-child(3).animate-on-scroll.visible { transition-delay: 0.8s; }
-.why-us-grid .why-us-item:nth-child(4).animate-on-scroll.visible { transition-delay: 1.0s; }
+
+.why-us-grid .why-us-item:nth-child(1).animate-on-scroll.visible {
+    transition-delay: 0.4s;
+}
+
+.why-us-grid .why-us-item:nth-child(2).animate-on-scroll.visible {
+    transition-delay: 0.6s;
+}
+
+.why-us-grid .why-us-item:nth-child(3).animate-on-scroll.visible {
+    transition-delay: 0.8s;
+}
+
+.why-us-grid .why-us-item:nth-child(4).animate-on-scroll.visible {
+    transition-delay: 1.0s;
+}
 
 
 /* --- Responsive Adjustments --- */
@@ -895,19 +934,23 @@ h6 {
     .why-us-section {
         padding: 80px 0;
     }
+
     .why-us-header {
         grid-template-columns: 1fr;
         gap: 40px;
         margin-bottom: 80px;
         text-align: center;
     }
+
     .why-us-headline {
         font-size: 3.5em;
     }
+
     .why-us-intro {
         max-width: 600px;
         margin: 0 auto;
     }
+
     .why-us-header-img img {
         max-width: 80%;
         margin: 0 auto;
@@ -918,24 +961,46 @@ h6 {
         gap: 50px;
         padding: 0 20px;
     }
+
     .why-us-item {
         text-align: center;
     }
+
     .why-us-item-number,
     .why-us-item-title {
         float: none;
         display: inline-block;
     }
-    .why-us-item-number { margin-right: 10px; }
-    .why-us-item-subtitle { clear: both; }
+
+    .why-us-item-number {
+        margin-right: 10px;
+    }
+
+    .why-us-item-subtitle {
+        clear: both;
+    }
 }
 
 @media (max-width: 576px) {
-    .why-us-headline { font-size: 2.5em; }
-    .why-us-item-number { font-size: 1.5em; }
-    .why-us-item-title { font-size: 1.3em; }
-    .why-us-item-subtitle { font-size: 0.8em; }
-    .why-us-item-desc { font-size: 0.9em; }
+    .why-us-headline {
+        font-size: 2.5em;
+    }
+
+    .why-us-item-number {
+        font-size: 1.5em;
+    }
+
+    .why-us-item-title {
+        font-size: 1.3em;
+    }
+
+    .why-us-item-subtitle {
+        font-size: 0.8em;
+    }
+
+    .why-us-item-desc {
+        font-size: 0.9em;
+    }
 }
 
 
@@ -1011,7 +1076,8 @@ h6 {
 /* Main Footer */
 .main-footer {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr; /* 4 columns */
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    /* 4 columns */
     gap: 40px;
     padding: 80px 80px;
 }
@@ -1115,34 +1181,329 @@ h6 {
     color: var(--golden-accent);
 }
 
+/* [ Keep all your existing CSS from the top of the file until the end of the footer section ] */
+/* ... */
+
 /* --- Footer Responsive Adjustments --- */
 @media (max-width: 992px) {
+
     .subscribe-section,
     .main-footer {
-        grid-template-columns: 1fr 1fr; /* 2 columns for tablet */
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns for tablet */
     }
 }
 
 @media (max-width: 768px) {
+
     .subscribe-section,
     .main-footer {
-        grid-template-columns: 1fr; /* 1 column for mobile */
+        grid-template-columns: 1fr;
+        /* 1 column for mobile */
         text-align: center;
     }
+
     .subscribe-form form {
         flex-direction: column;
         gap: 10px;
     }
-    .footer-column.about, .footer-column.about p {
+
+    .footer-column.about,
+    .footer-column.about p {
         margin-left: auto;
         margin-right: auto;
     }
+
     .social-icons {
         justify-content: center;
     }
+
     .sub-footer .container-wide {
         flex-direction: column;
         gap: 15px;
+    }
+}
+
+
+/* === NEW Marquee Section Styles === */
+.marquee-section {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #0d0b09;
+    border-top: 1px solid rgba(255, 215, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4em;
+    color: var(--golden-accent);
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 0 40px;
+    letter-spacing: 2px;
+}
+
+.marquee-divider {
+    font-size: 2.5em;
+    color: var(--golden-accent);
+    opacity: 0.5;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* === NEW Portfolio Section Styles === */
+.portfolio-section {
+    padding: 120px 0;
+    background-color: #0d0b09;
+    text-align: center;
+}
+
+.portfolio-filters {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--golden-accent);
+    color: #000;
+    border-color: var(--golden-accent);
+}
+
+.filter-btn.active {
+    background-color: var(--golden-accent);
+    color: #000;
+    border-color: var(--golden-accent);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    aspect-ratio: 4 / 5;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.portfolio-item.hidden {
+    display: none;
+}
+
+.portfolio-image-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-text {
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    text-align: left;
+}
+
+.portfolio-item:hover .portfolio-text {
+    transform: translateY(0);
+}
+
+.portfolio-text h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.portfolio-text p {
+    color: var(--golden-accent);
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+/* === NEW Testimonials Section Styles === */
+.testimonials-section {
+    padding: 120px 0;
+    background-color: #111;
+}
+
+.testimonial-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #0d0b09;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 8px;
+    padding: 60px 80px;
+}
+
+.testimonial-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+    /* Adjust based on content height */
+}
+
+.testimonial-item {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.testimonial-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--golden-accent);
+    margin: 0 auto 20px auto;
+}
+
+.testimonial-quote {
+    font-size: 1.2em;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.testimonial-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-nav:hover {
+    background-color: var(--golden-accent);
+    color: #000;
+}
+
+.testimonial-nav.prev {
+    left: 20px;
+}
+
+.testimonial-nav.next {
+    right: 20px;
+}
+
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 992px) {
+
+    /* ... (existing responsive rules) ... */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .marquee-item {
+        font-size: 3em;
+    }
+
+    .testimonial-wrapper {
+        padding: 50px 20px;
+    }
+
+    .testimonial-nav {
+        display: none;
+        /* Hide arrows on small screens, slider will auto-play */
+    }
+
+    .testimonial-container {
+        height: 280px;
+        /* More space for text wrap */
     }
 }
 
