@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +8,53 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-   <header class="topbar">
-    <div class="topbar-content">
-        <p class="promo-text">
-            🎉 Limited Time Offer! <span class="discount-highlight">Get 20% OFF</span> Your First Event Booking. <a href="#" class="promo-link">Save Now!</a>
-        </p>
-    </div>
-</header>
-<nav class="navbar">
-    <div class="container">
-        <div class="logo">EXOTIC<br>EVENTS</div>
-        
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li class="dropdown">
-                <a href="#">SERVICES <span class="arrow-down"></span></a>
-                <div class="dropdown-content">
-                    <a href="#">Weddings</a>
-                    <a href="#">Concerts</a>
-                    <a href="#">Corporate</a>
-                </div>
-            </li>
-            <li><a href="#">CONTACT US</a></li>
-            <li><button class="btn-get-started">GET STARTED</button></li>
-        </ul>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 
-        <div class="hamburger" id="hamburger-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <img src="assets/images/xoticlogo-Photoroom.png" alt="Xotic Events Logo" class="preloader-logo">
     </div>
-</nav>
+
+    <header class="topbar">
+        <div class="topbar-content">
+            <p class="promo-text">
+                🎉 Limited Time Offer! <span class="discount-highlight">Get 20% OFF</span> Your First Event Booking. <a
+                    href="#" class="promo-link">Save Now!</a>
+            </p>
+        </div>
+    </header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">EXOTIC<br>EVENTS</div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li class="dropdown">
+                    <a href="#">SERVICES <span class="arrow-down"></span></a>
+                    <div class="dropdown-content">
+                        <a href="#">Weddings</a>
+                        <a href="#">Concerts</a>
+                        <a href="#">Corporate</a>
+                    </div>
+                </li>
+                <li><a href="#">CONTACT US</a></li>
+                <li><button class="btn-get-started">GET STARTED</button></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <div id="overlay"></div>
     <main>
         <section class="hero-section">
             <div class="container">
@@ -52,10 +64,14 @@
                     neque. Mi sed nullam sed amet. Rhoncus orci
                     pulvinar feugiat tristique lacus.
                 </div>
-                <h1 class="hero-headline">
-                    CAPTURE<br>EVERY MOMENT
-                </h1>
-                <button class="btn-book-session">BOOK YOUR SESSION</button>
+
+                <div class="hero-content-main">
+                    <h1 class="hero-headline">
+                        CAPTURE<br>EVERY MOMENT
+                    </h1>
+                    <button class="btn-book-session">BOOK YOUR SESSION</button>
+                </div>
+
                 <div class="stats">
                     <div class="stat-item">
                         <div class="stat-number">12K+</div>
@@ -70,6 +86,8 @@
         </section>
     </main>
 
+    <script src="preloader.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

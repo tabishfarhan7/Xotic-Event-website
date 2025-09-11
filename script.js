@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('open');
             overlay.classList.toggle('active');
         };
-        
+
         hamburger.addEventListener('click', toggleMenu);
-        
+
         // Close menu when overlay is clicked
         overlay.addEventListener('click', toggleMenu);
 
