@@ -117,7 +117,7 @@ p {
     padding: 20px 0;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1002;
 }
 
 .navbar .container {
@@ -466,9 +466,11 @@ p {
 
 
 /* --- Achievements Section --- */
+/* --- Achievements Section --- */
 .achievements-section {
     background-color: var(--color-black-light);
-    padding: 120px 0;
+    /* MODIFICATION: Adjusted bottom padding for better spacing after section removal. */
+    padding: 120px 0 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -516,10 +518,12 @@ p {
 }
 
 /* --- Why Us Section --- */
-/* .why-us-section {
-    padding: 120px 0;
+.why-us-section {
+    padding: 67px 0;
     background-color: var(--color-black);
 }
+
+/*
 
 .why-us-header-block {
     text-align: center;
@@ -1159,6 +1163,7 @@ p {
     }
 
     .nav-links {
+        display: flex;
         position: fixed;
         top: 0;
         right: 0;

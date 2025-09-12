@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
-        navLinks.querySelectorAll('a, button').forEach(item => {
+        // MODIFIED: Added a delay to ensure scrolling starts before the menu closes.
+        navLinks.querySelectorAll('a').forEach(item => {
             item.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
-                    toggleMenu();
+                    // This short delay makes the navigation feel more responsive.
+                    setTimeout(toggleMenu, 300);
                 }
             });
         });
