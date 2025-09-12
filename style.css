@@ -126,13 +126,43 @@ p {
     justify-content: space-between;
 }
 
+/* Logo single line */
 .navbar .logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 800;
-    font-size: 2.5em;
-    line-height: 1.2;
-    color: var(--color-text-light);
-    text-transform: uppercase;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 800;
+  font-size: 2.2em;   /* slightly smaller */
+  letter-spacing: 2px; /* spacing to look premium */
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  white-space: nowrap; /* force one line */
+}
+/* In your CSS file */
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;       /* This vertically centers the text */
+  justify-content: center;   /* This horizontally centers the text */
+  padding: 12px 28px;
+  background-color: var(--color-gold);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  border-radius: 0px;
+  border: none;              /* This removes the border */
+  text-decoration: none;     /* This removes the underline */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  /* 'line-height' was removed as flexbox handles alignment better */
+  height: 1.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: transparent;
+  color: black !important;
+  text-decoration: none;     /* This ensures NO underline on hover */
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
 }
 
 .nav-links {
@@ -642,7 +672,7 @@ p {
     display: flex;
     align-items: center;
     width: fit-content;
-    animation: marquee 40s linear infinite;
+    animation: marquee 10s linear infinite;
 }
 
 .marquee-content:hover {
