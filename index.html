@@ -34,7 +34,7 @@
 
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Xotic EVENTS</div>
+            <div class="logo">XOTIC EVENTS</div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#about">ABOUT US</a></li>
@@ -86,16 +86,7 @@
                     <p>At Xotic Events, we see every occasion as a unique story waiting to be told. Our passion is
                         transforming your vision into an immersive reality. We are architects of atmosphere, curators of
                         detail, and producers of flawless experiences.</p>
-                    <div class="stats-integrated">
-                        <div class="stat-item">
-                            <div class="stat-number">12K+</div>
-                            <div class="stat-label">Hours of Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Events Completed</div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -107,7 +98,7 @@
                 <h2 class="services-headline">Expertise For Every <span class="text-gold">Occasion</span></h2>
             </div>
             <div class="services-grid">
-                <a href="#" class="service-card">
+                <div class="service-card" data-gallery="wedding-gallery">
                     <div class="service-card-bg"
                         style="background-image: url('https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
                     </div>
@@ -119,8 +110,9 @@
                         </div>
                         <span class="service-arrow">&rarr;</span>
                     </div>
-                </a>
-                <a href="#" class="service-card">
+                </div>
+
+                <div class="service-card" data-gallery="corporate-gallery">
                     <div class="service-card-bg"
                         style="background-image: url('https://images.pexels.com/photos/2058130/pexels-photo-2058130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
                     </div>
@@ -132,20 +124,21 @@
                         </div>
                         <span class="service-arrow">&rarr;</span>
                     </div>
-                </a>
-                <a href="#" class="service-card">
+                </div>
+
+                <div class="service-card" data-gallery="social-gallery">
                     <div class="service-card-bg"
-                        style="background-image: url('https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                        style="background-image: url('https://images.pexels.com/photos/3801463/pexels-photo-3801463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
                     </div>
                     <div class="service-card-content">
                         <div class="card-text">
-                            <h3 class="service-title">Concerts & Parties</h3>
-                            <p class="service-description">Producing electrifying concerts and unforgettable private
-                                parties.</p>
+                            <h3 class="service-title">Social Events</h3>
+                            <p class="service-description">Creating memorable social gatherings, from milestone
+                                birthdays to anniversaries.</p>
                         </div>
                         <span class="service-arrow">&rarr;</span>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -153,7 +146,7 @@
         <div class="container-wide">
             <div class="achievements-grid">
                 <div class="achievement-item animate-on-scroll">
-                    <div class="achievement-number" data-goal="15">0+</div>
+                    <div class="achievement-number" data-goal="8">0+</div>
                     <h3 class="achievement-title">Years of Experience</h3>
                     <p class="achievement-description">
                         Decades of expertise in orchestrating flawless events, from intimate gatherings to large-scale
@@ -168,19 +161,12 @@
                         clients to bring their visions to life.
                     </p>
                 </div>
-                <div class="achievement-item animate-on-scroll">
-                    <div class="achievement-number" data-goal="20">0+</div>
-                    <h3 class="achievement-title">Industry Awards</h3>
-                    <p class="achievement-description">
-                        Recognized for our creativity, innovation, and commitment to excellence in the event management
-                        industry.
-                    </p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="why-us-section">
+    <!-- <section class="why-us-section">
         <div class="container-wide">
             <div class="why-us-header-block">
                 <span class="sub-heading">The Xotic Difference</span>
@@ -249,7 +235,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="marquee-section">
         <div class="marquee-content">
             <span class="marquee-item">Luxury</span><span class="marquee-divider">&bull;</span>
@@ -383,10 +369,10 @@
 
     <footer class="site-footer" id="contact">
         <div class="container-wide">
-            
+
             <div class="main-footer">
                 <div class="footer-column about">
-                    <h4 class="logo">Xotic Events</h4>
+                    <h4 class="logo">XOTIC EVENTS</h4>
                     <p>Feel free to call us in working hours Mon - Fri (9:00 - 17:00). Our team will be happy to help
                         answer your queries.</p>
                     <p class="contact-info">📞 +1 (333) 000-0000</p>
@@ -451,6 +437,50 @@
             </div>
         </div>
     </footer>
+
+    <div style="display: none;">
+        <div id="wedding-gallery">
+            <a href="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Enchanted Garden Wedding</h4>">
+                <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="A beautiful wedding reception table.">
+            </a>
+            <a href="https://images.pexels.com/photos/2253862/pexels-photo-2253862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Timeless Ballroom Reception</h4>">
+                <img src="https://images.pexels.com/photos/2253862/pexels-photo-2253862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="A grand ballroom set for a wedding.">
+            </a>
+            <a href="https://images.pexels.com/photos/1779439/pexels-photo-1779439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Outdoor Ceremony</h4>">
+                <img src="https://images.pexels.com/photos/1779439/pexels-photo-1779439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="An outdoor wedding ceremony setup.">
+            </a>
+        </div>
+        <div id="corporate-gallery">
+            <a href="https://images.pexels.com/photos/1181317/pexels-photo-1181317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Annual Corporate Gala</h4>">
+                <img src="https://images.pexels.com/photos/1181317/pexels-photo-1181317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="A speaker at a corporate conference.">
+            </a>
+            <a href="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Product Launch Event</h4>">
+                <img src="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="A team collaborates during a corporate event.">
+            </a>
+        </div>
+        <div id="social-gallery">
+            <a href="https://images.pexels.com/photos/7180617/pexels-photo-7180617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Milestone Birthday Bash</h4>">
+                <img src="https://images.pexels.com/photos/7180617/pexels-photo-7180617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="A stylish birthday party decoration.">
+            </a>
+            <a href="https://images.pexels.com/photos/7648325/pexels-photo-7648325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                data-sub-html="<h4>Elegant Anniversary Dinner</h4>">
+                <img src="https://images.pexels.com/photos/7648325/pexels-photo-7648325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="A beautifully set table for a social dinner.">
+            </a>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

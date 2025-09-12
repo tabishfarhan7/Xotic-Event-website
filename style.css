@@ -128,41 +128,50 @@ p {
 
 /* Logo single line */
 .navbar .logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 800;
-  font-size: 2.2em;   /* slightly smaller */
-  letter-spacing: 2px; /* spacing to look premium */
-  color: var(--color-text-light);
-  text-transform: uppercase;
-  white-space: nowrap; /* force one line */
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 800;
+    font-size: 2.2em;
+    /* slightly smaller */
+    letter-spacing: 2px;
+    /* spacing to look premium */
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* force one line */
 }
+
 /* In your CSS file */
 
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;       /* This vertically centers the text */
-  justify-content: center;   /* This horizontally centers the text */
-  padding: 12px 28px;
-  background-color: var(--color-gold);
-  color: white;
-  font-weight: 700;
-  font-size: 0.95em;
-  text-transform: uppercase;
-  border-radius: 0px;
-  border: none;              /* This removes the border */
-  text-decoration: none;     /* This removes the underline */
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-  /* 'line-height' was removed as flexbox handles alignment better */
-  height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    /* This vertically centers the text */
+    justify-content: center;
+    /* This horizontally centers the text */
+    padding: 12px 28px;
+    background-color: var(--color-gold);
+    color: white;
+    font-weight: 700;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    border-radius: 0px;
+    border: none;
+    /* This removes the border */
+    text-decoration: none;
+    /* This removes the underline */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    /* 'line-height' was removed as flexbox handles alignment better */
+    height: 1.5rem;
 }
 
 .btn-secondary:hover {
-  background-color: transparent;
-  color: black !important;
-  text-decoration: none;     /* This ensures NO underline on hover */
-  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
-  transform: translateY(-2px);
+    background-color: transparent;
+    color: black !important;
+    text-decoration: none;
+    /* This ensures NO underline on hover */
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
+    transform: translateY(-2px);
 }
 
 .nav-links {
@@ -364,34 +373,7 @@ p {
     z-index: 2;
 }
 
-.stats-integrated {
-    display: flex;
-    gap: 60px;
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-.stats-integrated .stat-item {
-    text-align: left;
-}
-
-.stats-integrated .stat-number {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.5em;
-    color: var(--color-gold);
-}
-
-.stats-integrated .stat-label {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.9em;
-    line-height: 1.4;
-    color: var(--color-text-medium);
-    text-transform: uppercase;
-    margin-top: 5px;
-}
 
 /* --- NEW Services Section --- */
 .services-section {
@@ -419,6 +401,7 @@ p {
     text-decoration: none;
     display: block;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
 .service-card-bg {
@@ -493,8 +476,10 @@ p {
 
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
@@ -530,8 +515,8 @@ p {
     margin: 0 auto;
 }
 
-/* --- NEW Why Us Section --- */
-.why-us-section {
+/* --- Why Us Section --- */
+/* .why-us-section {
     padding: 120px 0;
     background-color: var(--color-black);
 }
@@ -571,7 +556,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} 
 
 .accordion-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -656,7 +641,7 @@ p {
 
 .accordion-item.active .accordion-content {
     max-height: 200px;
-}
+} */
 
 /* --- Marquee Section --- */
 .marquee-section {

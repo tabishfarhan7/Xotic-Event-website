@@ -128,27 +128,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Why Us Accordion Logic ---
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    const accordionImages = document.querySelectorAll('.why-us-image-wrapper');
+    //---Dynamic Galleries for Services Section ---
+    const serviceCards = document.querySelectorAll('.service-card[data-gallery]');
 
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion-header');
-        header.addEventListener('click', () => {
-            const itemNumber = header.dataset.accordion;
-            const isActive = item.classList.contains('active');
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const galleryId = card.dataset.gallery;
+            const galleryContainer = document.getElementById(galleryId);
 
-            accordionItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
-            });
-            accordionImages.forEach(image => {
-                image.classList.remove('active');
-            });
+            if (galleryContainer) {
+                const galleryItems = Array.from(galleryContainer.children).map(el => {
+                    return {
+                        src: el.href,
+                        thumb: el.querySelector('img').src,
+                        subHtml: el.dataset.subHtml || ""
+                    }
+                });
 
-            if (!isActive) {
-                item.classList.add('active');
-                document.querySelector(`.why-us-image-wrapper[data-image="${itemNumber}"]`).classList.add('active');
+                // This creates and opens the gallery on the fly
+                const dynamicGallery = lightGallery(card, {
+                    dynamic: true,
+                    dynamicEl: galleryItems,
+                    download: false,
+                    speed: 500
+                });
+                dynamicGallery.openGallery();
             }
         });
     });
+
+    // --- Why Us Accordion Logic ---
+    // const accordionItems = document.querySelectorAll('.accordion-item');
+    // const accordionImages = document.querySelectorAll('.why-us-image-wrapper');
+
+    // accordionItems.forEach(item => {
+    //     const header = item.querySelector('.accordion-header');
+    //     header.addEventListener('click', () => {
+    //         const itemNumber = header.dataset.accordion;
+    //         const isActive = item.classList.contains('active');
+
+    //         accordionItems.forEach(otherItem => {
+    //             otherItem.classList.remove('active');
+    //         });
+    //         accordionImages.forEach(image => {
+    //             image.classList.remove('active');
+    //         });
+
+    //         if (!isActive) {
+    //             item.classList.add('active');
+    //             document.querySelector(`.why-us-image-wrapper[data-image="${itemNumber}"]`).classList.add('active');
+    //         }
+    //     });
+    // });
 });
