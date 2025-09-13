@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: xotic-events-website 
+    env: static
+    staticPublishPath: .
+    rewrites:
+      - source: "/:path*"
+        destination: "/:path*.html"
+      - source: "/"
+        destination: "/index.html"
