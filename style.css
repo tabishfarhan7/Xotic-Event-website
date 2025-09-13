@@ -247,7 +247,7 @@ p {
     transition: all 0.3s ease;
 }
 
-/* --- NEW Hero Section Styles --- */
+/* --- NEW Hero Section Styles ---
 .hero-section {
     position: relative;
     height: 100vh;
@@ -311,6 +311,117 @@ p {
     color: var(--color-text-light);
     font-weight: 300;
     margin-bottom: 30px;
+} */
+/* --- FINAL, GUARANTEED HERO STYLES --- */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    position: relative;
+    /* Acts as the positioning container for the content */
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.hero-content {
+    /* THIS IS THE GUARANTEED CENTERING TECHNIQUE */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 90%;
+    /* Prevents text from touching edges on mobile */
+    max-width: 850px;
+    text-align: center;
+}
+
+.hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7em;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin: 10px 0 20px 0;
+}
+
+.hero-subheadline {
+    font-size: 1.25em;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* Pagination Dots */
+.swiper-pagination {
+    z-index: 4;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-gold);
+}
+
+
+/* --- RESPONSIVE STYLES FOR HERO --- */
+
+@media (max-width: 992px) {
+    .hero-headline {
+        font-size: 5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: 3.2em;
+        letter-spacing: 1px;
+        word-break: break-word;
+        /* Prevents overflow */
+    }
+
+    .hero-subheadline {
+        font-size: 1.1em;
+        word-break: break-word;
+        /* Prevents overflow */
+    }
 }
 
 /* --- General Headline Styles --- */
@@ -1245,12 +1356,28 @@ p {
 }
 
 @media (max-width: 768px) {
+
+    /* --- FINAL CONSOLIDATED HERO RESPONSIVE STYLES --- */
+    .hero-content {
+        padding: 0 5%;
+        /* Add some horizontal padding to prevent text touching edges */
+    }
+
     .hero-headline {
         font-size: 3.2em;
+        /* Smaller font size for mobile */
+        letter-spacing: 1px;
+        word-break: break-word;
+        /* Force long words to wrap */
+        hyphens: auto;
+        /* Allow hyphenation for better wrapping */
     }
 
     .hero-subheadline {
         font-size: 1.1em;
+        word-break: break-word;
+        /* Also apply wrapping to subheadline */
+        hyphens: auto;
     }
 
     .about-headline,

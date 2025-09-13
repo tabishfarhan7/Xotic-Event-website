@@ -23,6 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- FINAL Hero Section Swiper Logic (Simplified) ---
+    const heroSwiper = new Swiper('.hero-swiper', {
+        loop: true,
+        effect: 'fade', // The fade effect makes the text and images change in place
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+
     // --- Animated Counters and Scroll Animations Logic (IntersectionObserver) ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {

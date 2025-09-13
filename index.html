@@ -18,6 +18,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -30,7 +31,7 @@
         <div class="topbar-content">
             <p class="promo-text">
                 🎉 Limited Time Offer! <span class="discount-highlight">Get 20% OFF</span> Your First Event Booking. <a
-                    href="#" class="promo-link">Save Now!</a>
+                    href="#contact" class="promo-link">Save Now!</a>
             </p>
         </div>
     </header>
@@ -57,40 +58,70 @@
     <div id="overlay"></div>
 
     <section class="hero-section" id="home">
-        <div class="hero-video-wrapper">
-            <video playsinline autoplay muted loop poster="assets/images/hero.jpg">
-                <source src="assets/videos/hero-video.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <span class="sub-heading">Xotic Events</span>
-                <h1 class="hero-headline">
-                    Crafting Unforgettable <span class="text-gold">Moments</span>
-                </h1>
-                <p class="hero-subheadline">
-                    We design, plan, and execute exceptional events that leave a lasting impression, from grand galas to
-                    intimate celebrations.
-                </p>
-                <a href="#contact" class="btn-primary" style="margin-top: 20px;">Book a Consultation</a>
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-background"
+                        style="background-image: url('https://res.cloudinary.com/dheocxwze/image/upload/v1757761780/rely-tailors/xnsdere0ekbvy3yrmt7l.jpg');">
+                    </div>
+                    <div class="hero-overlay"></div>
+                    <div class="container">
+                        <div class="hero-content">
+                            <span class="sub-heading">Xotic Events</span>
+                            <h1 class="hero-headline">Crafting Your <span class="text-gold">Perfect Day</span></h1>
+                            <p class="hero-subheadline">From grand receptions to intimate ceremonies, we bring your
+                                dream wedding to life with elegance and precision.</p>
+                            <a href="#contact" class="btn-primary" style="margin-top: 20px;">Plan Your Wedding</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('assets/images/hero.jpg');">
+                    </div>
+                    <div class="hero-overlay"></div>
+                    <div class="container">
+                        <div class="hero-content">
+                            <span class="sub-heading">Xotic Events</span>
+                            <h1 class="hero-headline">Crafting Unforgettable <span class="text-gold">Moments</span></h1>
+                            <p class="hero-subheadline">We design, plan, and execute exceptional events that leave a
+                                lasting impression, from grand galas to intimate celebrations.</p>
+                            <a href="#contact" class="btn-primary" style="margin-top: 20px;">Book a Consultation</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-background"
+                        style="background-image: url('https://res.cloudinary.com/dheocxwze/image/upload/v1757761667/rely-tailors/hqiy9gz1nq8l4vnjq652.jpg');">
+                    </div>
+                    <div class="hero-overlay"></div>
+                    <div class="container">
+                        <div class="hero-content">
+                            <span class="sub-heading">Xotic Events</span>
+                            <h1 class="hero-headline">Celebrate in <span class="text-gold">Style</span></h1>
+                            <p class="hero-subheadline">We design spectacular parties, milestone birthdays, and social
+                                gatherings that your guests will never forget.</p>
+                            <a href="#contact" class="btn-primary" style="margin-top: 20px;">Start Planning</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
     <section class="about-section" id="about">
         <div class="container-wide">
             <div class="about-layout-grid">
                 <div class="about-image-column">
-                    <img src="assets/images/hero.jpg" alt="A beautifully decorated event table setting">
+                    <img src="https://res.cloudinary.com/dheocxwze/image/upload/v1757761883/rely-tailors/qgzisgsunbnzeohtgyxn.jpg"
+                        alt="An elegant event setup">
                 </div>
                 <div class="about-text-column">
-                    <span class="sub-heading">Who We Are</span>
-                    <h2 class="about-headline">More Than Planners—<br>We Are <span class="text-gold">Storytellers</span>
+                    <span class="sub-heading">About Us</span>
+                    <h2 class="about-headline">Crafting Experiences, <br>Not Just <span class="text-gold">Events</span>
                     </h2>
                     <p>At Xotic Events, we see every occasion as a unique story waiting to be told. Our passion is
                         transforming your vision into an immersive reality. We are architects of atmosphere, curators of
                         detail, and producers of flawless experiences.</p>
-
                 </div>
             </div>
         </div>
@@ -437,7 +468,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="preloader.js"></script>
     <script src="script.js"></script>
     <script src="animations.js"></script>
