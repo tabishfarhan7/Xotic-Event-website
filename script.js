@@ -182,4 +182,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Location Modal Logic ---
+    const openModalBtn = document.getElementById('open-location-modal');
+    const closeModalBtn = document.getElementById('close-location-modal');
+    const locationModal = document.getElementById('location-modal');
+
+    if (openModalBtn && closeModalBtn && locationModal) {
+        openModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            locationModal.classList.add('active');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            locationModal.classList.remove('active');
+        });
+
+        locationModal.addEventListener('click', (e) => {
+            if (e.target === locationModal) {
+                locationModal.classList.remove('active');
+            }
+        });
+    }
 });

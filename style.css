@@ -1383,6 +1383,17 @@ p {
         gap: 10px;
         text-align: center;
     }
+
+    .legal-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .sub-footer .legal-links a {
+        margin-left: 0;
+    }
 }
 
 
@@ -2059,5 +2070,145 @@ p {
 
     100% {
         transform: scale(1.15) translate(5%, -5%);
+    }
+}
+
+/* --- WhatsApp Floating Action Button --- */
+.whatsapp-fab {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.whatsapp-fab svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+
+/* --- Location Modal Styles --- */
+.location-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.location-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.location-modal-content {
+    background-color: var(--color-black-light);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 650px;
+    position: relative;
+    text-align: center;
+    transform: scale(0.95);
+    transition: transform 0.4s ease;
+}
+
+.location-modal-overlay.active .location-modal-content {
+    transform: scale(1);
+}
+
+.location-modal-content h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5em;
+    color: var(--color-gold);
+    margin-bottom: 25px;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    display: block;
+}
+
+.address-text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: var(--color-text-medium);
+    margin-bottom: 30px;
+}
+
+.location-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--color-text-medium);
+    font-size: 2.5em;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.location-modal-close:hover {
+    color: var(--color-gold);
+    transform: rotate(90deg);
+}
+
+
+@media (max-width: 768px) {
+    .whatsapp-fab {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-fab svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .location-modal-content {
+        padding: 25px;
+    }
+
+    .location-modal-content h3 {
+        font-size: 2em;
+    }
+
+    .address-text {
+        font-size: 1em;
     }
 }
