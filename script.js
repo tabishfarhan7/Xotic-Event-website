@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     // --- Hamburger Menu Logic ---
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('open');
             overlay.classList.toggle('active');
         };
-
         hamburger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.querySelectorAll('a').forEach(item => {
             item.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
-                    // This short delay makes the navigation feel more responsive.
                     setTimeout(toggleMenu, 300);
                 }
             });
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Animated Counters and Scroll Animations Logic (IntersectionObserver) ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -42,10 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-    }, {
-        threshold: 0.1
-    });
-
+    }, { threshold: 0.1 });
     animatedElements.forEach(element => {
         observer.observe(element);
     });
@@ -68,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Portfolio Filtering Logic ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
-
     if (filterButtons.length > 0 && portfolioItems.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -86,14 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LightGallery Initialization ---
+    // --- LightGallery Initialization (portfolio static gallery) ---
     const galleryContainer = document.getElementById('lightgallery-container');
     if (galleryContainer) {
+        if (window.lgModules && window.lgModules.video) {
+            lightGallery.lgModules.video = window.lgModules.video;
+        }
         lightGallery(galleryContainer, {
             selector: '.portfolio-item',
             speed: 500,
             download: false,
             getCaptionFromTitleOrAlt: true,
+            plugins: window.lgVideo ? [window.lgVideo] : [],
         });
     }
 
@@ -104,13 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevButton = document.getElementById('prev-testimonial');
         const nextButton = document.getElementById('next-testimonial');
         let currentTestimonial = 0;
-
         function showTestimonial(index) {
             allTestimonials.forEach((item, i) => {
                 item.classList.toggle('active', i === index);
             });
         }
-
         if (allTestimonials.length > 0) {
             showTestimonial(0);
             if (prevButton && nextButton) {
@@ -130,14 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //---Dynamic Galleries for Services Section ---
+    // --- Dynamic Galleries for Services Section ---
     const serviceCards = document.querySelectorAll('.service-card[data-gallery]');
-
     serviceCards.forEach(card => {
         card.addEventListener('click', () => {
             const galleryId = card.dataset.gallery;
             const galleryContainer = document.getElementById(galleryId);
-
             if (galleryContainer) {
                 const galleryItems = Array.from(galleryContainer.children).map(el => {
                     return {
@@ -146,9 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         subHtml: el.dataset.subHtml || ""
                     }
                 });
-
-                // This creates and opens the gallery on the fly
+                const plugin = (window.lgVideo !== undefined) ? window.lgVideo : (window.lgModules ? window.lgModules.video : undefined);
                 const dynamicGallery = lightGallery(card, {
+                    plugins: plugin ? [plugin] : [],
                     dynamic: true,
                     dynamicEl: galleryItems,
                     download: false,
@@ -158,6 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Single Post Gallery Trigger (videos and images) ---
+
+
+
 
     // --- Why Us Accordion Logic ---
     // const accordionItems = document.querySelectorAll('.accordion-item');

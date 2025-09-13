@@ -117,7 +117,7 @@ p {
     padding: 20px 0;
     position: sticky;
     top: 0;
-    z-index: 1002;
+    z-index: 1003;
 }
 
 .navbar .container {
@@ -1160,6 +1160,7 @@ p {
 
     .hamburger {
         display: flex;
+        z-index: 1003;
     }
 
     .nav-links {
@@ -1324,5 +1325,513 @@ p {
     .sub-footer .container-wide {
         flex-direction: column;
         gap: 15px;
+    }
+}
+
+
+
+/* Styles for Vlog Page */
+/* --- NEW: VLOG/BLOG PAGE STYLES --- */
+
+/* 1. Page Header */
+.page-header {
+    text-align: center;
+    padding: 100px 0;
+    background-color: var(--color-black-light);
+}
+
+.page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5em;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.page-description {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-text-medium);
+}
+
+/* 2. Post Grid */
+.post-grid-section {
+    padding: 100px 0;
+}
+
+.post-grid {
+    display: grid;
+    /* Creates a responsive grid that wraps automatically */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.post-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-light);
+    background-color: var(--color-black-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. Post Card Thumbnail */
+.post-card-thumbnail {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.post-card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-card-thumbnail img {
+    transform: scale(1.05);
+}
+
+.media-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.media-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+/* 4. Post Card Content */
+.post-card-content {
+    padding: 30px;
+}
+
+.post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2em;
+    line-height: 1.2;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+.post-excerpt {
+    color: var(--color-text-medium);
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.post-cta {
+    font-weight: 700;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.post-card:hover .post-cta {
+    color: var(--color-gold);
+}
+
+
+/* 1. VLOG LISTING PAGE HEADER */
+.page-header {
+    text-align: center;
+    padding: 100px 0;
+    background: linear-gradient(to bottom, var(--color-black-light) 0%, var(--color-black) 100%);
+}
+
+.sub-heading {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--color-text-medium);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5em;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.page-description {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-text-medium);
+}
+
+/* 2. VLOG LISTING GRID & CARDS */
+.post-grid-section {
+    padding-bottom: 100px;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.post-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-light);
+    background-color: var(--color-black-light);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.post-card-thumbnail {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.post-card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-card-thumbnail img {
+    transform: scale(1.05);
+}
+
+.media-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.media-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.post-card-content {
+    padding: 30px;
+}
+
+.post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2em;
+    line-height: 1.2;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+.post-excerpt {
+    color: var(--color-text-medium);
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.post-cta {
+    font-weight: 700;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.post-card:hover .post-cta {
+    color: var(--color-gold);
+}
+
+/* --- 3. SINGLE VLOG POST PAGE (NEW & ENHANCED STYLES) --- */
+.single-post-section {
+    padding: 80px 0;
+}
+
+/* THIS IS THE RULE WE UPDATED */
+.post-container {
+    max-width: 800px;
+    /* Reduced from 900px for a smaller, more compact view */
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--color-text-medium);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--color-gold);
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: var(--color-text-medium);
+}
+
+/* GALLERY TRIGGER THUMBNAIL */
+.post-hero-media-trigger {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 60px;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-hero-media-trigger img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.post-hero-media-trigger:hover img {
+    transform: scale(1.05);
+}
+
+.play-button-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+.post-hero-media-trigger:hover .play-button-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.play-button-icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-button-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+}
+
+.play-button-icon span {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.post-hero-media-trigger:hover .play-button-icon {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* VLOG ARTICLE CONTENT */
+.post-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8em;
+    color: var(--color-gold);
+    margin: 50px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.post-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+
+.vlog-intro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.event-details-box {
+    background-color: var(--color-black-light);
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-details-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8em;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+.event-details-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-details-box li {
+    color: var(--color-text-medium);
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.highlight-list {
+    list-style-type: '★';
+    padding-left: 25px;
+}
+
+.highlight-list li {
+    padding-left: 15px;
+    margin-bottom: 15px;
+    color: var(--color-text-medium);
+}
+
+.highlight-list li::marker {
+    color: var(--color-gold);
+}
+
+/* --- 4. FANCYBOX GALLERY CUSTOMIZATION --- */
+.fancybox__button {
+    color: var(--color-gold);
+}
+
+.fancybox__button:hover {
+    color: #fff;
+    background: var(--color-gold);
+}
+
+.fancybox__caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    padding: 40px 20px 20px 20px;
+}
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1003;
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 80%;
+        max-width: 300px;
+        background-color: #111;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        z-index: 1002;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .hamburger.open .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 3.2em;
+    }
+
+    .page-description {
+        font-size: 1.1em;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vlog-intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-details-box {
+        margin-top: 20px;
     }
 }
