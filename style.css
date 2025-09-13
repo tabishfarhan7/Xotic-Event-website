@@ -1834,4 +1834,187 @@ p {
     .event-details-box {
         margin-top: 20px;
     }
+
+}
+
+/* --- ENHANCED VLOG PAGE STYLES --- */
+
+/* 1. Featured Post */
+.featured-post-section {
+    padding: 100px 0;
+}
+
+.featured-post-card {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    gap: 60px;
+    text-decoration: none;
+    background-color: var(--color-black-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.featured-post-card:hover .featured-post-image img {
+    transform: scale(1.05);
+}
+
+.featured-post-content {
+    padding: 40px;
+}
+
+.featured-post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    line-height: 1.2;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+.featured-post-card:hover .featured-post-title {
+    color: var(--color-gold);
+}
+
+.featured-post-excerpt {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--color-text-medium);
+    margin-bottom: 30px;
+}
+
+/* 2. Section Divider */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
+    border: 0;
+    margin: 0 auto;
+}
+
+/* 3. Articles (SEO Blogs) Section */
+.articles-section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    background-color: var(--color-black);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    min-height: 200px;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+}
+
+.article-category {
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-medium);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.article-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* Allows title to take up available space */
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 992px) {
+    .featured-post-card {
+        grid-template-columns: 1fr;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* --- NEW: BLOG POST TEMPLATE STYLES --- */
+
+.blog-featured-image {
+    margin: 0 auto 60px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.blog-featured-image img {
+    width: 100%;
+    display: block;
+}
+
+.blog-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.blog-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8em;
+    color: var(--color-gold);
+    margin: 50px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 768px) {
+
+    .single-post-section {
+        padding: 60px 0;
+        /* Reduces top/bottom padding on mobile */
+    }
+
+    .post-header {
+        margin-bottom: 40px;
+        /* Tightens space below the header */
+    }
+
+    .post-hero-media-trigger,
+    .blog-featured-image {
+        margin-bottom: 40px;
+        /* Reduces space below the main image */
+    }
+
+    /* Reduces the size of subheadings within the article */
+    .post-content h2,
+    .blog-content h2 {
+        font-size: 2.2em;
+        margin-top: 40px;
+    }
 }
