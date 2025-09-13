@@ -1,4 +1,3 @@
-/* --- Core Color Palette --- */
 :root {
     --color-gold: #D4AF37;
     --color-gold-light: #E7C658;
@@ -38,7 +37,6 @@ p {
     margin: 0 0 25px 0;
 }
 
-/* --- Preloader Styles --- */
 .preloader {
     position: fixed;
     top: 0;
@@ -58,7 +56,6 @@ p {
     opacity: 0;
 }
 
-/* --- Base Containers --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -71,7 +68,6 @@ p {
     padding: 0 40px;
 }
 
-/* --- Top Bar --- */
 .topbar {
     background-color: #111;
     color: #f0f0f0;
@@ -111,7 +107,6 @@ p {
 }
 
 
-/* --- Navbar --- */
 .navbar {
     background-color: var(--color-black);
     padding: 20px 0;
@@ -126,28 +121,20 @@ p {
     justify-content: space-between;
 }
 
-/* Logo single line */
 .navbar .logo {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 800;
     font-size: 2.2em;
-    /* slightly smaller */
     letter-spacing: 2px;
-    /* spacing to look premium */
     color: var(--color-text-light);
     text-transform: uppercase;
     white-space: nowrap;
-    /* force one line */
 }
-
-/* In your CSS file */
 
 .btn-secondary {
     display: inline-flex;
     align-items: center;
-    /* This vertically centers the text */
     justify-content: center;
-    /* This horizontally centers the text */
     padding: 12px 28px;
     background-color: var(--color-gold);
     color: white;
@@ -156,12 +143,9 @@ p {
     text-transform: uppercase;
     border-radius: 0px;
     border: none;
-    /* This removes the border */
     text-decoration: none;
-    /* This removes the underline */
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-    /* 'line-height' was removed as flexbox handles alignment better */
     height: 1.5rem;
 }
 
@@ -169,7 +153,6 @@ p {
     background-color: transparent;
     color: black !important;
     text-decoration: none;
-    /* This ensures NO underline on hover */
     box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
     transform: translateY(-2px);
 }
@@ -247,72 +230,7 @@ p {
     transition: all 0.3s ease;
 }
 
-/* --- NEW Hero Section Styles ---
-.hero-section {
-    position: relative;
-    height: 100vh;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    overflow: hidden;
-}
-
-.hero-video-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-video-wrapper video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-}
-
-.hero-section .container {
-    position: relative;
-    z-index: 3;
-}
-
-.hero-content {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.hero-headline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 7em;
-    line-height: 1.1;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-text-light);
-    margin: 10px 0 20px 0;
-}
-
-.hero-subheadline {
-    font-size: 1.25em;
-    line-height: 1.6;
-    color: var(--color-text-light);
-    font-weight: 300;
-    margin-bottom: 30px;
-} */
-/* --- FINAL, GUARANTEED HERO STYLES --- */
+/* --- HERO STYLES --- */
 
 .hero-section {
     position: relative;
@@ -329,7 +247,6 @@ p {
 
 .swiper-slide {
     position: relative;
-    /* Acts as the positioning container for the content */
 }
 
 .slide-background {
@@ -341,6 +258,7 @@ p {
     background-size: cover;
     background-position: center;
     z-index: 1;
+    animation: kenburns 15s ease-out alternate-reverse infinite;
 }
 
 .hero-overlay {
@@ -354,14 +272,12 @@ p {
 }
 
 .hero-content {
-    /* THIS IS THE GUARANTEED CENTERING TECHNIQUE */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
     width: 90%;
-    /* Prevents text from touching edges on mobile */
     max-width: 850px;
     text-align: center;
 }
@@ -384,7 +300,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Pagination Dots */
 .swiper-pagination {
     z-index: 4;
 }
@@ -400,6 +315,9 @@ p {
     background-color: var(--color-gold);
 }
 
+.hero-content>* {
+    opacity: 0;
+}
 
 /* --- RESPONSIVE STYLES FOR HERO --- */
 
@@ -414,15 +332,15 @@ p {
         font-size: 3.2em;
         letter-spacing: 1px;
         word-break: break-word;
-        /* Prevents overflow */
     }
 
     .hero-subheadline {
         font-size: 1.1em;
         word-break: break-word;
-        /* Prevents overflow */
     }
 }
+
+
 
 /* --- General Headline Styles --- */
 .sub-heading {
@@ -447,7 +365,7 @@ p {
     text-transform: uppercase;
 }
 
-/* --- NEW About Us Section --- */
+/* --- About Us Section --- */
 .about-section {
     padding: 150px 0;
     background-color: var(--color-black);
@@ -486,7 +404,7 @@ p {
 
 
 
-/* --- NEW Services Section --- */
+/* --- Services Section --- */
 .services-section {
     padding: 120px 0;
     background-color: var(--color-black);
@@ -577,10 +495,8 @@ p {
 
 
 /* --- Achievements Section --- */
-/* --- Achievements Section --- */
 .achievements-section {
     background-color: var(--color-black-light);
-    /* MODIFICATION: Adjusted bottom padding for better spacing after section removal. */
     padding: 120px 0 80px;
     text-align: center;
     position: relative;
@@ -843,6 +759,7 @@ p {
     border-color: var(--color-gold);
 }
 
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -852,20 +769,15 @@ p {
 .portfolio-item {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
     border-radius: 8px;
-    aspect-ratio: 4 / 5;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    text-decoration: none;
     display: block;
-}
-
-.portfolio-item.hidden {
-    display: none;
+    background-color: var(--color-black-light);
 }
 
 .portfolio-image-wrapper {
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
 }
 
 .portfolio-image-wrapper img {
@@ -879,28 +791,22 @@ p {
     transform: scale(1.1);
 }
 
-.portfolio-overlay {
+/* --- DESKTOP STYLES (Overlay) --- */
+.portfolio-text {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 70%);
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 30px;
     opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
-}
-
-.portfolio-text {
     transform: translateY(20px);
-    transition: transform 0.4s ease;
-    text-align: left;
+    transition: all 0.4s ease;
 }
 
 .portfolio-item:hover .portfolio-text {
+    opacity: 1;
     transform: translateY(0);
 }
 
@@ -916,6 +822,7 @@ p {
     color: var(--color-gold);
     font-weight: 600;
     font-size: 0.9em;
+    margin: 0;
 }
 
 /* --- Testimonials Section --- */
@@ -1357,27 +1264,20 @@ p {
 
 @media (max-width: 768px) {
 
-    /* --- FINAL CONSOLIDATED HERO RESPONSIVE STYLES --- */
     .hero-content {
         padding: 0 5%;
-        /* Add some horizontal padding to prevent text touching edges */
     }
 
     .hero-headline {
         font-size: 3.2em;
-        /* Smaller font size for mobile */
         letter-spacing: 1px;
         word-break: break-word;
-        /* Force long words to wrap */
-        hyphens: auto;
-        /* Allow hyphenation for better wrapping */
+
     }
 
     .hero-subheadline {
         font-size: 1.1em;
         word-break: break-word;
-        /* Also apply wrapping to subheadline */
-        hyphens: auto;
     }
 
     .about-headline,
@@ -1409,7 +1309,32 @@ p {
     }
 
     .portfolio-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .portfolio-image-wrapper {
+        aspect-ratio: 1 / 1;
+    }
+
+    .portfolio-text {
+        position: static;
+        /* Change from absolute to static */
+        opacity: 1;
+        transform: none;
+        background: none;
+        padding: 20px;
+    }
+
+    .portfolio-text h3 {
+        color: var(--color-text-light);
+        /* Change text color for visibility */
+        font-size: 1.2em;
+    }
+
+    .portfolio-text p {
+        color: var(--color-text-medium);
+        font-size: 0.8em;
     }
 
     .marquee-item {
@@ -1457,10 +1382,8 @@ p {
 
 
 
-/* Styles for Vlog Page */
-/* --- NEW: VLOG/BLOG PAGE STYLES --- */
+/* --- VLOG/BLOG PAGE STYLES --- */
 
-/* 1. Page Header */
 .page-header {
     text-align: center;
     padding: 100px 0;
@@ -1482,14 +1405,12 @@ p {
     color: var(--color-text-medium);
 }
 
-/* 2. Post Grid */
 .post-grid-section {
     padding: 100px 0;
 }
 
 .post-grid {
     display: grid;
-    /* Creates a responsive grid that wraps automatically */
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 40px;
 }
@@ -1509,7 +1430,6 @@ p {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* 3. Post Card Thumbnail */
 .post-card-thumbnail {
     position: relative;
     aspect-ratio: 16 / 10;
@@ -1547,7 +1467,6 @@ p {
     fill: #fff;
 }
 
-/* 4. Post Card Content */
 .post-card-content {
     padding: 30px;
 }
@@ -1581,7 +1500,6 @@ p {
 }
 
 
-/* 1. VLOG LISTING PAGE HEADER */
 .page-header {
     text-align: center;
     padding: 100px 0;
@@ -1613,7 +1531,6 @@ p {
     color: var(--color-text-medium);
 }
 
-/* 2. VLOG LISTING GRID & CARDS */
 .post-grid-section {
     padding-bottom: 100px;
 }
@@ -1711,15 +1628,12 @@ p {
     color: var(--color-gold);
 }
 
-/* --- 3. SINGLE VLOG POST PAGE (NEW & ENHANCED STYLES) --- */
 .single-post-section {
     padding: 80px 0;
 }
 
-/* THIS IS THE RULE WE UPDATED */
 .post-container {
     max-width: 800px;
-    /* Reduced from 900px for a smaller, more compact view */
     margin: 0 auto;
 }
 
@@ -1812,7 +1726,6 @@ p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* VLOG ARTICLE CONTENT */
 .post-content h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.8em;
@@ -1876,7 +1789,7 @@ p {
     color: var(--color-gold);
 }
 
-/* --- 4. FANCYBOX GALLERY CUSTOMIZATION --- */
+/* --- FANCYBOX GALLERY CUSTOMIZATION --- */
 .fancybox__button {
     color: var(--color-gold);
 }
@@ -1895,7 +1808,6 @@ p {
 
 
 
-/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
@@ -1964,9 +1876,6 @@ p {
 
 }
 
-/* --- ENHANCED VLOG PAGE STYLES --- */
-
-/* 1. Featured Post */
 .featured-post-section {
     padding: 100px 0;
 }
@@ -2017,7 +1926,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* 2. Section Divider */
 .section-divider {
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
@@ -2025,7 +1933,6 @@ p {
     margin: 0 auto;
 }
 
-/* 3. Articles (SEO Blogs) Section */
 .articles-section {
     padding: 100px 0;
 }
@@ -2076,10 +1983,8 @@ p {
     color: var(--color-text-light);
     margin-bottom: 20px;
     flex-grow: 1;
-    /* Allows title to take up available space */
 }
 
-/* Responsive adjustments for new sections */
 @media (max-width: 992px) {
     .featured-post-card {
         grid-template-columns: 1fr;
@@ -2092,7 +1997,7 @@ p {
 
 
 
-/* --- NEW: BLOG POST TEMPLATE STYLES --- */
+/* --- BLOG POST TEMPLATE STYLES --- */
 
 .blog-featured-image {
     margin: 0 auto 60px auto;
@@ -2124,24 +2029,30 @@ p {
 
     .single-post-section {
         padding: 60px 0;
-        /* Reduces top/bottom padding on mobile */
     }
 
     .post-header {
         margin-bottom: 40px;
-        /* Tightens space below the header */
     }
 
     .post-hero-media-trigger,
     .blog-featured-image {
         margin-bottom: 40px;
-        /* Reduces space below the main image */
     }
 
-    /* Reduces the size of subheadings within the article */
     .post-content h2,
     .blog-content h2 {
         font-size: 2.2em;
         margin-top: 40px;
+    }
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1.0) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.15) translate(5%, -5%);
     }
 }

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Hamburger Menu Logic ---
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links');
     const overlay = document.getElementById('overlay');
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
-        // MODIFIED: Added a delay to ensure scrolling starts before the menu closes.
         navLinks.querySelectorAll('a').forEach(item => {
             item.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
@@ -23,22 +21,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- FINAL Hero Section Swiper Logic (Simplified) ---
     const heroSwiper = new Swiper('.hero-swiper', {
         loop: true,
-        effect: 'fade', // The fade effect makes the text and images change in place
+        effect: 'fade',
+        speed: 200,
         autoplay: {
-            delay: 5000,
+            delay: 7000,
             disableOnInteraction: false,
         },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
         },
+        on: {
+            init: function () {
+                animateSlideText(this.slides[this.activeIndex]);
+            },
+            slideChangeTransitionStart: function () {
+                this.slides.forEach(slide => {
+                    gsap.to(slide.querySelectorAll('.hero-content > *'), { opacity: 0, y: 20, duration: 0 });
+                });
+            },
+            slideChangeTransitionEnd: function () {
+                animateSlideText(this.slides[this.activeIndex]);
+            }
+        }
     });
 
+    function animateSlideText(activeSlide) {
+        const contentElements = activeSlide.querySelectorAll('.hero-content > *');
+        gsap.to(contentElements, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out',
+            delay: 0.2
+        });
+    }
 
-    // --- Animated Counters and Scroll Animations Logic (IntersectionObserver) ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -73,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, stepTime);
     }
 
-    // --- Portfolio Filtering Logic ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     if (filterButtons.length > 0 && portfolioItems.length > 0) {
@@ -93,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LightGallery Initialization (portfolio static gallery) ---
     const galleryContainer = document.getElementById('lightgallery-container');
     if (galleryContainer) {
         if (window.lgModules && window.lgModules.video) {
@@ -108,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Testimonial Slider Logic ---
     const testimonialContainer = document.getElementById('testimonial-container');
     if (testimonialContainer) {
         const allTestimonials = testimonialContainer.querySelectorAll('.testimonial-item');
@@ -139,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Dynamic Galleries for Services Section ---
     const serviceCards = document.querySelectorAll('.service-card[data-gallery]');
     serviceCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -165,33 +182,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // --- Single Post Gallery Trigger (videos and images) ---
-
-
-
-
-    // --- Why Us Accordion Logic ---
-    // const accordionItems = document.querySelectorAll('.accordion-item');
-    // const accordionImages = document.querySelectorAll('.why-us-image-wrapper');
-
-    // accordionItems.forEach(item => {
-    //     const header = item.querySelector('.accordion-header');
-    //     header.addEventListener('click', () => {
-    //         const itemNumber = header.dataset.accordion;
-    //         const isActive = item.classList.contains('active');
-
-    //         accordionItems.forEach(otherItem => {
-    //             otherItem.classList.remove('active');
-    //         });
-    //         accordionImages.forEach(image => {
-    //             image.classList.remove('active');
-    //         });
-
-    //         if (!isActive) {
-    //             item.classList.add('active');
-    //             document.querySelector(`.why-us-image-wrapper[data-image="${itemNumber}"]`).classList.add('active');
-    //         }
-    //     });
-    // });
 });
