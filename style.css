@@ -1018,6 +1018,16 @@ p {
     color: var(--color-text-light);
 }
 
+.contact-info a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--color-gold);
+}
+
 .social-icons {
     display: flex;
     gap: 15px;
