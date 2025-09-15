@@ -2230,3 +2230,43 @@ p {
         font-size: 1em;
     }
 }
+
+.lg-close {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 9999 !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    color: white !important;
+}
+
+.lg-close:after {
+    content: '×' !important;
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+@media (max-width: 768px) {
+    .lg-close {
+        top: 5px !important;
+        right: 5px !important;
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 20px !important;
+    }
+}
+
+.lg-backdrop {
+    z-index: 9990 !important;
+}
+
+.lg-outer {
+    z-index: 9991 !important;
+}
