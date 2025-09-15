@@ -124,11 +124,19 @@ p {
 .navbar .logo {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 800;
-    font-size: 2.2em;
+    font-size: 2em;
     letter-spacing: 2px;
     color: var(--color-text-light);
     text-transform: uppercase;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.logo-icon {
+    height: 45px;
+    width: auto;
 }
 
 .btn-secondary {
