@@ -134,6 +134,32 @@ p {
     gap: 6px;
 }
 
+.footer-column .logo {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    /* font-family: 'Bebas Neue', sans-serif; */
+    /* font-weight: 800; */
+    /* font-size: 2em; */
+    /* letter-spacing: 2px; */
+    /* color: var(--color-text-light); */
+    /* text-transform: uppercase; */
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media (max-width: 768px) {
+    .footer-column .logo span {
+        font-size: 0.8em;
+        line-break: auto;
+        gap: 2px;
+    }
+}
+
 .logo-icon {
     height: 45px;
     width: auto;
