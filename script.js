@@ -183,25 +183,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Location Modal Logic ---
-    const openModalBtn = document.getElementById('open-location-modal');
-    const closeModalBtn = document.getElementById('close-location-modal');
-    const locationModal = document.getElementById('location-modal');
-
-    if (openModalBtn && closeModalBtn && locationModal) {
-        openModalBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            locationModal.classList.add('active');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            locationModal.classList.remove('active');
-        });
-
-        locationModal.addEventListener('click', (e) => {
-            if (e.target === locationModal) {
-                locationModal.classList.remove('active');
+    // --- Featured Reels Slider Logic ---
+    const reelsSwiperEl = document.querySelector('.reels-swiper');
+    if (reelsSwiperEl) {
+        const reelsSwiper = new Swiper('.reels-swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.reel-nav-next',
+                prevEl: '.reel-nav-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                }
             }
         });
+
+        // Initialize lightGallery on the slider
+        lightGallery(reelsSwiperEl, {
+            selector: '.reel-card',
+            plugins: [lgVideo],
+            download: false,
+            // licenseKey: 'your_license_key', // Add your license key if you have one
+        });
     }
+
+    // // --- Location Modal Logic ---
+    // const openModalBtn = document.getElementById('open-location-modal');
+    // const closeModalBtn = document.getElementById('close-location-modal');
+    // const locationModal = document.getElementById('location-modal');
+
+    // if (openModalBtn && closeModalBtn && locationModal) {
+    //     openModalBtn.addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //         locationModal.classList.add('active');
+    //     });
+
+    //     closeModalBtn.addEventListener('click', () => {
+    //         locationModal.classList.remove('active');
+    //     });
+
+    //     locationModal.addEventListener('click', (e) => {
+    //         if (e.target === locationModal) {
+    //             locationModal.classList.remove('active');
+    //         }
+    //     });
+    // }
 });
