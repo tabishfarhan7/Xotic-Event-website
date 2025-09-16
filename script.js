@@ -183,39 +183,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Featured Reels Slider Logic ---
     const reelsSwiperEl = document.querySelector('.reels-swiper');
     if (reelsSwiperEl) {
         const reelsSwiper = new Swiper('.reels-swiper', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            navigation: {
-                nextEl: '.reel-nav-next',
-                prevEl: '.reel-nav-prev',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                1200: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                }
-            }
+            loop: true, slidesPerView: 1, spaceBetween: 20,
+            navigation: { nextEl: '.reel-nav-next', prevEl: '.reel-nav-prev' },
+            breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 }, 1200: { slidesPerView: 4, spaceBetween: 30 } }
         });
 
-        // Initialize lightGallery on the slider
-        lightGallery(reelsSwiperEl, {
+        // Initialize lightGallery on the slider with autoplay logic
+        const reelsGallery = lightGallery(reelsSwiperEl, {
             selector: '.reel-card',
             plugins: [lgVideo],
             download: false,
-            // licenseKey: 'your_license_key', // Add your license key if you have one
+            // Video options
+            videojs: true,
+            youtubePlayerParams: { autoplay: 1, modestbranding: 1, showinfo: 0, rel: 0 },
+            vimeoPlayerParams: { autoplay: 1, byline: 0, portrait: 0, color: 'D4AF37' }
+        });
+
+        // --- AUTOPLAY & PAUSE LOGIC ---
+        // Event listener for when a slide is opened
+        reelsSwiperEl.addEventListener('lgAfterOpen', (event) => {
+            const gallery = event.detail.instance;
+            // Delay to allow the video player to initialize
+            setTimeout(() => {
+                gallery.media(gallery.index).play();
+            }, 500);
+        });
+
+        // Event listener for BEFORE you slide to the next item
+        reelsSwiperEl.addEventListener('lgBeforeSlide', (event) => {
+            const gallery = event.detail.instance;
+            const prevIndex = event.detail.prevIndex;
+            // Pause the video you are leaving
+            gallery.media(prevIndex).pause();
+
+            // Play the new video you are arriving at
+            setTimeout(() => {
+                gallery.media(gallery.index).play();
+            }, 500);
         });
     }
 

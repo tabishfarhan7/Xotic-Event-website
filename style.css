@@ -2546,3 +2546,28 @@ p {
         padding: 0;
     }
 }
+
+/* --- Mobile lightGallery UI Controls Fix --- */
+@media (max-width: 768px) {
+
+    .lg-outer .lg-toolbar,
+    .lg-outer .lg-next,
+    .lg-outer .lg-prev {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .lg-outer .lg-toolbar {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        height: 55px !important;
+    }
+
+    .lg-outer .lg-next,
+    .lg-outer .lg-prev {
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 50%;
+    }
+}
