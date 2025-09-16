@@ -2568,6 +2568,7 @@ p {
         display: none;
     }
 
+
     .reels-slider-wrapper {
         padding: 0;
     }
@@ -2576,21 +2577,20 @@ p {
 /* --- Mobile lightGallery UI Controls Fix --- */
 @media (max-width: 768px) {
 
-    .lg-outer .lg-toolbar,
-    .lg-outer .lg-next,
-    .lg-outer .lg-prev {
-        display: block !important;
+    .lg-outer .lg-toolbar {
+        display: flex !important;
+        /* Use flex to correctly align items inside */
         opacity: 1 !important;
         visibility: visible !important;
-    }
-
-    .lg-outer .lg-toolbar {
         background-color: rgba(0, 0, 0, 0.5) !important;
         height: 55px !important;
     }
 
     .lg-outer .lg-next,
     .lg-outer .lg-prev {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
         width: 44px;
         height: 44px;
         background: rgba(0, 0, 0, 0.45);
