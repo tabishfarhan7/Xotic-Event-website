@@ -15,6 +15,7 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -228,7 +229,6 @@
 
     <!-- DELETE the entire <section class="portfolio-section" ...>...</section> -->
 
-    <!-- AND REPLACE IT WITH THIS NEW SECTION -->
     <section class="reels-section" id="reels">
         <div class="container-wide">
             <div class="reels-header">
@@ -238,69 +238,63 @@
                     craft.</p>
             </div>
 
-            <div class="reels-slider-wrapper">
-                <div class="swiper reels-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="https://www.instagram.com/reel/C3xx2zLSSLF/embed?pb" class="reel-card"
-                                data-iframe="true" data-lg-size="420-746">
-                                <img src="assets/images/reel-1.png" alt="Stunning Wedding Decor Reel Thumbnail">
-                                <div class="reel-overlay">
-                                    <div class="play-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Stunning Wedding Decor</h4>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="https://www.instagram.com/reel/CwNgTl1M7nu/embed?pb" class="reel-card"
-                                data-iframe="true" data-lg-size="420-746">
-                                <img src="assets/images/reel-2.jpg" alt="Event Highlights Reel Thumbnail">
-                                <div class="reel-overlay">
-                                    <div class="play-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Event Highlights</h4>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="https://www.instagram.com/reel/CwNhO8qMNtw/embed?pb" class="reel-card"
-                                data-iframe="true" data-lg-size="420-746">
-                                <img src="assets/images/reel-3.jpg" alt="Behind the Scenes Reel Thumbnail">
-                                <div class="reel-overlay">
-                                    <div class="play-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Behind the Scenes</h4>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="https://www.instagram.com/reel/C3xxjN-yYDv/embed?pb" class="reel-card"
-                                data-iframe="true" data-lg-size="420-746">
-                                <img src="assets/images/reel-4.jpg" alt="Magical Moments Reel Thumbnail">
-                                <div class="reel-overlay">
-                                    <div class="play-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Magical Moments</h4>
-                                </div>
-                            </a>
-                        </div>
+            <div class="film-strip-container">
+                <a href="https://www.instagram.com/reel/C3xx2zLSSLF/embed?pb" data-fancybox="reels-gallery"
+                    data-type="iframe" class="reel-card">
+                    <div class="reel-card-image">
+                        <img src="assets/images/reel-1.png" alt="Stunning Wedding Decor Reel Thumbnail">
                     </div>
-                </div>
-                <div class="reel-nav-prev"></div>
-                <div class="reel-nav-next"></div>
+                    <div class="reel-card-overlay">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <h4>Stunning Wedding Decor</h4>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/CwNgTl1M7nu/embed?pb" data-fancybox="reels-gallery"
+                    data-type="iframe" class="reel-card">
+                    <div class="reel-card-image">
+                        <img src="assets/images/reel-2.jpg" alt="Event Highlights Reel Thumbnail">
+                    </div>
+                    <div class="reel-card-overlay">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <h4>Event Highlights</h4>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/CwNhO8qMNtw/embed?pb" data-fancybox="reels-gallery"
+                    data-type="iframe" class="reel-card">
+                    <div class="reel-card-image">
+                        <img src="assets/images/reel-3.jpg" alt="Behind the Scenes Reel Thumbnail">
+                    </div>
+                    <div class="reel-card-overlay">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <h4>Behind the Scenes</h4>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/reel/C3xxjN-yYDv/embed?pb" data-fancybox="reels-gallery"
+                    data-type="iframe" class="reel-card">
+                    <div class="reel-card-image">
+                        <img src="assets/images/reel-4.jpg" alt="Magical Moments Reel Thumbnail">
+                    </div>
+                    <div class="reel-card-overlay">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <h4>Magical Moments</h4>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -674,6 +668,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/video/lg-video.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="preloader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="script.js"></script>
     <!-- <script src="animations.js"></script> -->
 

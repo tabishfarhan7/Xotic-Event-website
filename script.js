@@ -183,68 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const reelsSwiperEl = document.querySelector('.reels-swiper');
-    if (reelsSwiperEl) {
-        const reelsSwiper = new Swiper('.reels-swiper', {
-            loop: true, slidesPerView: 1, spaceBetween: 20,
-            navigation: { nextEl: '.reel-nav-next', prevEl: '.reel-nav-prev' },
-            breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 }, 1200: { slidesPerView: 4, spaceBetween: 30 } }
-        });
-
-        // Initialize lightGallery on the slider with autoplay logic
-        const reelsGallery = lightGallery(reelsSwiperEl, {
-            selector: '.reel-card',
-            plugins: [lgVideo],
-            download: false,
-            // Video options
-            videojs: true,
-            youtubePlayerParams: { autoplay: 1, modestbranding: 1, showinfo: 0, rel: 0 },
-            vimeoPlayerParams: { autoplay: 1, byline: 0, portrait: 0, color: 'D4AF37' }
-        });
-
-        // --- AUTOPLAY & PAUSE LOGIC ---
-        // Event listener for when a slide is opened
-        reelsSwiperEl.addEventListener('lgAfterOpen', (event) => {
-            const gallery = event.detail.instance;
-            // Delay to allow the video player to initialize
-            setTimeout(() => {
-                gallery.media(gallery.index).play();
-            }, 500);
-        });
-
-        // Event listener for BEFORE you slide to the next item
-        reelsSwiperEl.addEventListener('lgBeforeSlide', (event) => {
-            const gallery = event.detail.instance;
-            const prevIndex = event.detail.prevIndex;
-            // Pause the video you are leaving
-            gallery.media(prevIndex).pause();
-
-            // Play the new video you are arriving at
-            setTimeout(() => {
-                gallery.media(gallery.index).play();
-            }, 500);
-        });
-    }
-
-    // // --- Location Modal Logic ---
-    // const openModalBtn = document.getElementById('open-location-modal');
-    // const closeModalBtn = document.getElementById('close-location-modal');
-    // const locationModal = document.getElementById('location-modal');
-
-    // if (openModalBtn && closeModalBtn && locationModal) {
-    //     openModalBtn.addEventListener('click', (e) => {
-    //         e.preventDefault();
-    //         locationModal.classList.add('active');
-    //     });
-
-    //     closeModalBtn.addEventListener('click', () => {
-    //         locationModal.classList.remove('active');
-    //     });
-
-    //     locationModal.addEventListener('click', (e) => {
-    //         if (e.target === locationModal) {
-    //             locationModal.classList.remove('active');
-    //         }
-    //     });
-    // }
+    // Initialize Fancybox for the new "Film Strip" reels section
+    Fancybox.bind('[data-fancybox="reels-gallery"]', {
+        mainClass: 'fancybox-reel' // This class is for custom styling of the modal
+    });
 });

@@ -2494,12 +2494,10 @@ p {
     border: 0;
 }
 
-/* --- START: Featured Reels Section Styles --- */
+/* --- START: FINAL PROFESSIONAL REELS SECTION STYLES --- */
 .reels-section {
     padding: 120px 0;
     background-color: var(--color-black);
-    position: relative;
-    overflow: hidden;
 }
 
 .reels-header {
@@ -2514,208 +2512,153 @@ p {
     color: var(--color-text-medium);
 }
 
-.reels-slider-wrapper {
-    position: relative;
-    padding: 0 40px;
-    /* Creates space on the sides for the arrows */
+.film-strip-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px;
+    /* Provides breathing room and shows shadows */
+    margin: 0 -20px;
+    /* Compensates for padding to align with container edges */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    scroll-snap-type: x mandatory;
+    /* Snaps cards into view while scrolling */
 }
 
-.reels-swiper {
-    padding: 20px 0 !important;
-    /* Adds vertical padding for shadow/hover effects */
+/* Custom scrollbar for a polished look */
+.film-strip-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.film-strip-container::-webkit-scrollbar-track {
+    background: var(--color-black-light);
+    border-radius: 4px;
+}
+
+.film-strip-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-gold);
+    border-radius: 4px;
 }
 
 .reel-card {
-    display: block;
     position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: 300px;
     aspect-ratio: 9 / 16;
     border-radius: 12px;
     overflow: hidden;
-    cursor: pointer;
+    scroll-snap-align: start;
+    /* Aligns card to the left on snap */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    text-decoration: none;
 }
 
 .reel-card:hover {
-    transform: scale(1.03) translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
 }
 
-.reel-card img {
+.reel-card-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.reel-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
-.reel-card:hover img {
+.reel-card:hover .reel-card-image img {
     transform: scale(1.1);
 }
 
-.reel-overlay {
+.reel-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     padding: 25px;
-    align-items: center;
-    flex-direction: column;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.play-icon {
+.reel-card:hover .reel-card-overlay {
+    opacity: 1;
+}
+
+.reel-card-overlay .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 60px;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.reel-card:hover .play-icon {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
 }
 
 .play-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     fill: #fff;
     margin-left: 4px;
 }
 
-.reel-overlay h4 {
+.reel-card-overlay h4 {
     margin: 0;
     color: #fff;
     font-size: 1.3em;
     font-weight: 600;
-    text-align: left;
-    width: 100%;
-    transform: translateY(10px);
-    opacity: 0;
-    transition: all 0.4s ease;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.reel-card:hover .reel-overlay h4 {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* Redesigned Reels Slider Arrows */
-.reel-nav-prev,
-.reel-nav-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 55px;
-    height: 55px;
-    background-color: rgba(20, 20, 20, 0.7);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    /* Fallback color for the icon */
-}
-
-.reel-nav-prev:hover,
-.reel-nav-next:hover {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-    transform: translateY(-50%) scale(1.05);
-}
-
-.reel-nav-prev {
-    left: -15px;
-}
-
-.reel-nav-next {
-    right: -15px;
-}
-
-.reel-nav-prev::after,
-.reel-nav-next::after {
-    font-size: 22px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.reel-nav-prev:hover::after,
-.reel-nav-next:hover::after {
-    color: black;
-}
-
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    .reels-slider-wrapper {
-        padding: 0;
+    .film-strip-container {
+        gap: 20px;
     }
 
-    .reel-nav-prev,
-    .reel-nav-next {
-        display: none;
+    .reel-card {
+        width: 250px;
     }
 }
 
-/* --- START: lightGallery Fixes --- */
-
-/* Correctly frame Instagram Reels to look like a phone */
-.lg-slide[data-iframe="true"] .lg-video-cont {
+/* --- Fancybox Customization (Same as before, still needed) --- */
+.fancybox-reel .fancybox__content {
+    background: transparent;
+    padding: 0;
     max-width: 420px;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
-    aspect-ratio: 9 / 16;
-    margin: auto;
-    position: relative;
+    /* Phone-like width */
 }
 
-.lg-slide[data-iframe="true"] .lg-object {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.fancybox-reel .fancybox__content .fancybox__slide .f-iframe {
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 9/16;
     border: 0;
 }
 
-/* Fix for lightGallery controls on mobile devices */
-@media (max-width: 768px) {
-    .lg-outer .lg-toolbar {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        background-color: rgba(0, 0, 0, 0.5) !important;
-        height: 55px !important;
-    }
-
-    .lg-outer .lg-next,
-    .lg-outer .lg-prev {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        opacity: 1 !important;
-        visibility: visible !important;
-        width: 44px;
-        height: 44px;
-        background: rgba(0, 0, 0, 0.45);
-        border-radius: 50%;
-    }
+.fancybox__backdrop {
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
 }
 
-/* --- END: lightGallery Fixes --- */
+.fancybox__toolbar .f-button {
+    background: rgba(20, 20, 20, 0.7);
+    color: var(--color-gold);
+}
 
-/* --- END: Featured Reels Section Styles --- */
+/* --- END: FINAL PROFESSIONAL REELS SECTION STYLES --- */
