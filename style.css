@@ -2494,14 +2494,127 @@ p {
     border: 0;
 }
 
-/* --- Redesigned Reels Slider Arrows --- */
+/* --- START: Featured Reels Section Styles --- */
+.reels-section {
+    padding: 120px 0;
+    background-color: var(--color-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.reels-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.reels-header p {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: var(--color-text-medium);
+}
+
+.reels-slider-wrapper {
+    position: relative;
+    padding: 0 40px;
+    /* Creates space on the sides for the arrows */
+}
+
+.reels-swiper {
+    padding: 20px 0 !important;
+    /* Adds vertical padding for shadow/hover effects */
+}
+
+.reel-card {
+    display: block;
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.reel-card:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.reel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.reel-card:hover img {
+    transform: scale(1.1);
+}
+
+.reel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.play-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.reel-card:hover .play-icon {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.play-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+    margin-left: 4px;
+}
+
+.reel-overlay h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.reel-card:hover .reel-overlay h4 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Redesigned Reels Slider Arrows */
 .reel-nav-prev,
 .reel-nav-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 55px;
-    /* Larger */
     height: 55px;
     background-color: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(8px);
@@ -2513,6 +2626,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    /* Fallback color for the icon */
 }
 
 .reel-nav-prev:hover,
@@ -2522,7 +2637,6 @@ p {
     transform: translateY(-50%) scale(1.05);
 }
 
-/* Position arrows in the padding area */
 .reel-nav-prev {
     left: -15px;
 }
@@ -2533,53 +2647,55 @@ p {
 
 .reel-nav-prev::after,
 .reel-nav-next::after {
-    display: none;
+    font-size: 22px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.reel-nav-prev::before,
-.reel-nav-next::before {
-    content: '';
-    display: block;
-    width: 22px;
-    height: 22px;
-    background-color: white;
-    transition: background-color 0.3s ease;
-}
-
-.reel-nav-prev:hover::before,
-.reel-nav-next:hover::before {
-    background-color: black;
-}
-
-.reel-nav-prev::before {
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
-}
-
-.reel-nav-next::before {
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+.reel-nav-prev:hover::after,
+.reel-nav-next:hover::after {
+    color: black;
 }
 
 @media (max-width: 768px) {
+    .reels-slider-wrapper {
+        padding: 0;
+    }
 
     .reel-nav-prev,
     .reel-nav-next {
         display: none;
     }
-
-
-    .reels-slider-wrapper {
-        padding: 0;
-    }
 }
 
-/* --- Mobile lightGallery UI Controls Fix --- */
-@media (max-width: 768px) {
+/* --- START: lightGallery Fixes --- */
 
+/* Correctly frame Instagram Reels to look like a phone */
+.lg-slide[data-iframe="true"] .lg-video-cont {
+    max-width: 420px;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    margin: auto;
+    position: relative;
+}
+
+.lg-slide[data-iframe="true"] .lg-object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 0;
+}
+
+/* Fix for lightGallery controls on mobile devices */
+@media (max-width: 768px) {
     .lg-outer .lg-toolbar {
         display: flex !important;
-        /* Use flex to correctly align items inside */
         opacity: 1 !important;
         visibility: visible !important;
         background-color: rgba(0, 0, 0, 0.5) !important;
@@ -2588,7 +2704,9 @@ p {
 
     .lg-outer .lg-next,
     .lg-outer .lg-prev {
-        display: block !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
         opacity: 1 !important;
         visibility: visible !important;
         width: 44px;
@@ -2597,3 +2715,7 @@ p {
         border-radius: 50%;
     }
 }
+
+/* --- END: lightGallery Fixes --- */
+
+/* --- END: Featured Reels Section Styles --- */
