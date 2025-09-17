@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('nav-links');
     const overlay = document.getElementById('overlay');
 
+    // --- Mobile Menu Logic ---
     if (hamburger && navLinks && overlay) {
         const toggleMenu = () => {
             navLinks.classList.toggle('active');
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Hero Swiper ---
     const heroSwiper = new Swiper('.hero-swiper', {
         loop: true,
         effect: 'fade',
@@ -39,7 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             slideChangeTransitionStart: function () {
                 this.slides.forEach(slide => {
-                    gsap.to(slide.querySelectorAll('.hero-content > *'), { opacity: 0, y: 20, duration: 0 });
+                    gsap.to(slide.querySelectorAll('.hero-content > *'), {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0
+                    });
                 });
             },
             slideChangeTransitionEnd: function () {
@@ -60,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Scroll Animations & Counter ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -74,7 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-    }, { threshold: 0.1 });
+    }, {
+        threshold: 0.1
+    });
     animatedElements.forEach(element => {
         observer.observe(element);
     });
@@ -94,45 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }, stepTime);
     }
 
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    if (filterButtons.length > 0 && portfolioItems.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                });
-            });
-        });
-    }
+    // --- (REMOVED) Old Portfolio Filter ---
+    // The portfolio section this belonged to was deleted from the HTML.
 
-    const galleryContainer = document.getElementById('lightgallery-container');
-    if (galleryContainer) {
-        if (window.lgModules && window.lgModules.video) {
-            lightGallery.lgModules.video = window.lgModules.video;
-        }
-        lightGallery(galleryContainer, {
-            selector: '.portfolio-item',
-            speed: 500,
-            download: false,
-            getCaptionFromTitleOrAlt: true,
-            plugins: window.lgVideo ? [window.lgVideo] : [],
-        });
-    }
-
+    // --- Testimonial Slider ---
     const testimonialContainer = document.getElementById('testimonial-container');
     if (testimonialContainer) {
         const allTestimonials = testimonialContainer.querySelectorAll('.testimonial-item');
         const prevButton = document.getElementById('prev-testimonial');
         const nextButton = document.getElementById('next-testimonial');
         let currentTestimonial = 0;
+
         function showTestimonial(index) {
             allTestimonials.forEach((item, i) => {
                 item.classList.toggle('active', i === index);
@@ -157,60 +138,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- [NEW] Fancybox Dynamic Gallery for Service Cards ---
     const serviceCards = document.querySelectorAll('.service-card[data-gallery]');
     serviceCards.forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
             const galleryId = card.dataset.gallery;
             const galleryContainer = document.getElementById(galleryId);
+
             if (galleryContainer) {
-                const galleryItems = Array.from(galleryContainer.children).map(el => {
+                const galleryLinks = galleryContainer.querySelectorAll('a');
+                const galleryItems = Array.from(galleryLinks).map(link => {
                     return {
-                        src: el.href,
-                        thumb: el.querySelector('img').src,
-                        subHtml: el.dataset.subHtml || ""
-                    }
+                        src: link.href,
+                        thumb: link.querySelector('img').src,
+                        caption: link.dataset.subHtml || '' // Fancybox uses 'caption'
+                    };
                 });
-                const plugin = (window.lgVideo !== undefined) ? window.lgVideo : (window.lgModules ? window.lgModules.video : undefined);
-                const dynamicGallery = lightGallery(card, {
-                    plugins: plugin ? [plugin] : [],
-                    dynamic: true,
-                    dynamicEl: galleryItems,
-                    download: false,
-                    speed: 500
-                });
-                dynamicGallery.openGallery();
+
+                if (galleryItems.length > 0) {
+                    Fancybox.show(galleryItems, {
+                        Thumbs: {
+                            autoStart: true,
+                        },
+                        Toolbar: {
+                            display: {
+                                left: ["infobar"],
+                                middle: [],
+                                right: ["thumbs", "close"],
+                            },
+                        },
+                    });
+                }
             }
         });
     });
 
+    // --- Reels Loading Animation ---
     const reelCards = document.querySelectorAll('.reel-card');
     reelCards.forEach(card => {
         card.classList.add('loading');
-
-        // Simulate image load (in real scenario, you'd use imagesLoaded or similar)
         const img = card.querySelector('img');
         if (img) {
             if (img.complete) {
                 card.classList.remove('loading');
             } else {
-                img.addEventListener('load', () => {
-                    card.classList.remove('loading');
-                });
-                img.addEventListener('error', () => {
-                    card.classList.remove('loading');
-                    // Optionally add a placeholder image
-                });
+                img.addEventListener('load', () => card.classList.remove('loading'));
+                img.addEventListener('error', () => card.classList.remove('loading'));
             }
         } else {
             card.classList.remove('loading');
         }
     });
 
-    // Improve Fancybox for mobile
+    // --- Fancybox Initialization for Reels Gallery ---
     Fancybox.bind('[data-fancybox="reels-gallery"]', {
         mainClass: 'fancybox-reel',
         on: {
-            // Add loading state to iframes
             load: (fancybox, slide) => {
                 const iframe = slide.$el.querySelector('iframe');
                 if (iframe) {
@@ -220,17 +204,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         },
-        // Mobile optimizations
         touch: {
-            vertical: false, // Allow vertical swipe to close
-            momentum: true   // Enable momentum scrolling
+            vertical: false,
+            momentum: true
         },
-        // Better mobile UX
-        idle: false, // Don't hide controls on mobile
+        idle: false,
         animated: true,
         showClass: 'f-zoom-in',
         hideClass: 'f-zoom-out',
         dragToClose: true,
-        contentClick: 'close', // Click content to close on mobile
+        contentClick: 'close',
     });
 });

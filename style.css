@@ -68,20 +68,6 @@ p {
     padding: 0 40px;
 }
 
-/* .topbar {
-    background-color: #111;
-    color: #f0f0f0;
-    padding: 12px 0;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.topbar-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-} */
-
 .promo-text {
     margin: 0;
     font-size: 0.95em;
@@ -140,12 +126,6 @@ p {
     line-height: 1;
     color: var(--color-text-light);
     margin-bottom: 20px;
-    /* font-family: 'Bebas Neue', sans-serif; */
-    /* font-weight: 800; */
-    /* font-size: 2em; */
-    /* letter-spacing: 2px; */
-    /* color: var(--color-text-light); */
-    /* text-transform: uppercase; */
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -583,130 +563,6 @@ p {
     padding: 67px 0;
     background-color: var(--color-black);
 }
-
-/*
-
-.why-us-header-block {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 80px auto;
-}
-
-.why-us-interactive-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: flex-start;
-}
-
-.why-us-image-panel {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 600px;
-}
-
-.why-us-image-wrapper {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.why-us-image-wrapper.active {
-    opacity: 1;
-}
-
-.why-us-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} 
-
-.accordion-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.accordion-item:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.accordion-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px 0;
-    cursor: pointer;
-}
-
-.accordion-header h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
-    font-weight: 600;
-    color: var(--color-text-medium);
-    transition: color 0.3s ease;
-}
-
-.accordion-item.active .accordion-header h3 {
-    color: var(--color-gold);
-}
-
-.item-number {
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--color-gold);
-    margin-right: 20px;
-}
-
-.accordion-icon {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    transition: transform 0.4s ease;
-}
-
-.accordion-icon::before,
-.accordion-icon::after {
-    content: '';
-    position: absolute;
-    background-color: var(--color-text-medium);
-}
-
-.accordion-icon::before {
-    left: 50%;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    transform: translateX(-50%);
-}
-
-.accordion-icon::after {
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    transform: translateY(-50%);
-}
-
-.accordion-item.active .accordion-icon {
-    transform: rotate(135deg);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-}
-
-.accordion-content p {
-    padding: 0 0 30px 45px;
-    margin: 0;
-    font-size: 1em;
-}
-
-.accordion-item.active .accordion-content {
-    max-height: 200px;
-} */
 
 /* --- Marquee Section --- */
 .marquee-section {
@@ -2316,46 +2172,6 @@ p {
     }
 }
 
-.lg-close {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    z-index: 9999 !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 24px !important;
-    color: white !important;
-}
-
-.lg-close:after {
-    content: '×' !important;
-    font-family: Arial, sans-serif !important;
-    font-weight: bold !important;
-}
-
-@media (max-width: 768px) {
-    .lg-close {
-        top: 5px !important;
-        right: 5px !important;
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 20px !important;
-    }
-}
-
-.lg-backdrop {
-    z-index: 9990 !important;
-}
-
-.lg-outer {
-    z-index: 9991 !important;
-}
-
 /* --- Featured Reels Section (REPLACEMENT BLOCK) --- */
 .reels-section {
     padding: 120px 0;
@@ -2467,31 +2283,6 @@ p {
 .reel-card:hover .reel-overlay h4 {
     transform: translateY(0);
     opacity: 1;
-}
-
-/* --- Instagram Reel Lightbox Frame Fix (Desktop & Mobile) --- */
-.lg-slide[data-iframe="true"] .lg-video-cont {
-    max-width: 420px;
-    /* Phone-like width */
-    max-height: 85vh;
-    /* Prevents it from being too tall */
-    width: auto;
-    height: auto;
-    aspect-ratio: 9 / 16;
-    margin: auto;
-    /* This is the key to centering it */
-    position: relative;
-}
-
-.lg-slide[data-iframe="true"] .lg-object {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 0;
 }
 
 .reels-section {
