@@ -183,8 +183,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize Fancybox for the new "Film Strip" reels section
+    const reelCards = document.querySelectorAll('.reel-card');
+    reelCards.forEach(card => {
+        card.classList.add('loading');
+
+        // Simulate image load (in real scenario, you'd use imagesLoaded or similar)
+        const img = card.querySelector('img');
+        if (img) {
+            if (img.complete) {
+                card.classList.remove('loading');
+            } else {
+                img.addEventListener('load', () => {
+                    card.classList.remove('loading');
+                });
+                img.addEventListener('error', () => {
+                    card.classList.remove('loading');
+                    // Optionally add a placeholder image
+                });
+            }
+        } else {
+            card.classList.remove('loading');
+        }
+    });
+
+    // Improve Fancybox for mobile
     Fancybox.bind('[data-fancybox="reels-gallery"]', {
-        mainClass: 'fancybox-reel' // This class is for custom styling of the modal
+        mainClass: 'fancybox-reel',
+        on: {
+            // Add loading state to iframes
+            load: (fancybox, slide) => {
+                const iframe = slide.$el.querySelector('iframe');
+                if (iframe) {
+                    iframe.addEventListener('load', () => {
+                        slide.$el.classList.remove('loading');
+                    });
+                }
+            }
+        },
+        // Mobile optimizations
+        touch: {
+            vertical: false, // Allow vertical swipe to close
+            momentum: true   // Enable momentum scrolling
+        },
+        // Better mobile UX
+        idle: false, // Don't hide controls on mobile
+        animated: true,
+        showClass: 'f-zoom-in',
+        hideClass: 'f-zoom-out',
+        dragToClose: true,
+        contentClick: 'close', // Click content to close on mobile
     });
 });
